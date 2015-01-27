@@ -5,6 +5,6 @@ Router = require 'react-router'
 
 routes = require('./routes')
 
-Router.run routes, (fn) ->
+Router.run routes, Router.HistoryLocation, (fn) ->
   Handler = React.createFactory fn
   React.render Handler(), document.body
