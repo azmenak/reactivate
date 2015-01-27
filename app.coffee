@@ -8,7 +8,9 @@ React     = require 'react'
 Reactify  = require './reactify'
 
 module.exports =
-  ignores: ['readme.md', '**/layout.*', '**/_*', '.gitignore', 'ship.*conf']
+  ignores: ['README.md', '**/layout.*', '**/_*', '.gitignore', 'ship.*conf'
+            'reactify.coffee', 'data.coffee', 'routes.coffee',
+            'assets/js/components/**/*']
 
   extensions: [
     browserify
