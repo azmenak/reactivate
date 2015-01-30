@@ -13,6 +13,7 @@ module.exports = React.createFactory React.createClass
     '/': 'home'
     '/lifestyle': 'lifestyle'
     '/products':
+      name: 'products'
       '/sublime': 'sublime'
       '/ee': 'expressive essentials'
     '/dealers': 'where to buy'
@@ -23,12 +24,19 @@ module.exports = React.createFactory React.createClass
   menuWalker: (menu) ->
     for path, name of menu
       if typeof name is 'object'
-        R.ul className: 'sub-menu menu-items',
-          for subPath, subName of name
-            MenuItem
-              path: subPath
-              key: subPath
-            , subName.toUpperCase()
+        # Deep clone name object, otherwise name: gets deleted
+        subMenu = JSON.parse(JSON.stringify(name))
+        MenuItem
+          path: path
+          key: path
+        , subMenu.name.toUpperCase(),
+          delete subMenu.name
+          R.ul className: 'sub-menu menu-items',
+            for subPath, subName of subMenu
+              MenuItem
+                path: subPath
+                key: subPath
+              , subName.toUpperCase()
       else
         MenuItem
           path: path

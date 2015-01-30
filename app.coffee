@@ -6,6 +6,7 @@ css_pipeline = require 'css-pipeline'
 
 React     = require 'react'
 Reactify  = require './reactify'
+data      = require './assets/js/data'
 
 module.exports =
   ignores: ['README.md', '**/layout.*', '**/_*', '.gitignore', 'ship.*conf'
@@ -32,4 +33,7 @@ module.exports =
   jade:
     pretty: true
 
-  locals: {Reactify, React}
+  server:
+    clean_urls: true
+
+  locals: {Reactify, React, data}
