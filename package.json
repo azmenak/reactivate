@@ -1,6 +1,11 @@
 {
   "name": "reactivate",
   "description": "A static site builer using isomorphic react",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azmenak/reactivate"
+  },
   "dependencies": {
     "autoprefixer-stylus": "0.5.x",
     "axis": "0.3.x",
