@@ -1,6 +1,9 @@
 React = require 'react'
-parseForm = require '../../utils/parseForm'
+GmapsDirectionLink = require './gmaps-directions.react'
+
+parseForm = require '../../utils/parse-form'
 formaters = require '../../utils/formaters'
+mapsUtils = require '../../utils/maps-utils'
 data = require '../../data'
 
 R = React.DOM
@@ -29,6 +32,16 @@ module.exports = React.createFactory React.createClass
     distance: null
     store: null
     address: null
+    geo: null
+
+  componentDidMount: ->
+    navigator.geolocation.getCurrentPosition (position) =>
+      return unless @isMounted()
+      crd = position.coords
+      @setState
+        geo:
+          lat: crd.latitude
+          lng: crd.longitude
 
   geocode: (event) ->
     GoogleMapsLoader ?= require 'google-maps'
@@ -41,11 +54,12 @@ module.exports = React.createFactory React.createClass
     GoogleMapsLoader.load (google) =>
       ReactGoogleMaps ?= require 'react-googlemaps'
 
-      Map ?= ReactGoogleMaps.Map
-      Marker ?= ReactGoogleMaps.Marker
-      OverlayView ?= ReactGoogleMaps.OverlayView
+      Map ?= React.createFactory ReactGoogleMaps.Map
+      Marker ?= React.createFactory ReactGoogleMaps.Marker
+      OverlayView ?= React.createFactory ReactGoogleMaps.OverlayView
       geo = new google.maps.Geocoder()
       geo.geocode {address, region: 'CA'}, (results) =>
+        return unless @isMounted()
         if results.length is 0
           @setState status: @STATUSES.NOTFOUND
           return
@@ -67,6 +81,7 @@ module.exports = React.createFactory React.createClass
           origins: [location]
           destinations: storeLocations
         distanceMatrix.getDistanceMatrix matrixRequest, (matrix) =>
+          return unless @isMounted()
           console.log matrix
           stores = matrix.rows[0].elements
           sortedStores = stores.slice(0)
@@ -77,21 +92,7 @@ module.exports = React.createFactory React.createClass
           i = stores.indexOf(sortedStores[0])
           closestStore = data.stores[i]
 
-          getCentrePoint = (orig, dest) ->
-            [south, north] = if orig.lat < dest.lat
-              [orig.lat, dest.lat]
-            else
-              [dest.lat, orig.lat]
-            [west, east] = if orig.lng < dest.lng
-              [orig.lng, dest.lng]
-            else
-              [dest.lng, orig.lng]
-            southWest = new google.maps.LatLng(south, west)
-            northEast = new google.maps.LatLng(north, east)
-            bounds = new google.maps.LatLngBounds(southWest, northEast)
-            bounds.getCenter()
-
-          centre = getCentrePoint
+          bounds = mapsUtils.getBounds
             lat: closestStore.lat
             lng: closestStore.lng
           ,
@@ -102,7 +103,8 @@ module.exports = React.createFactory React.createClass
             distance: sortedStores[0].distance.text
             status: @STATUSES.FOUND
             store: closestStore
-            centre: centre
+            centre: bounds.getCenter()
+            zoom: mapsUtils.getBoundsZoomLevel(bounds)
 
   render: ->
     div className: 'location-finder',
@@ -114,6 +116,12 @@ module.exports = React.createFactory React.createClass
           name: 'address'
           ref: 'locationInput'
           placeholder: 'Enter your Address or Postal Code'
+
+      div className: 'formated-address',
+        if @state.status in [@STATUSES.FOUND, @STATUSES.SEARCHING]
+          addr: R.p className: 'addr', @state.address
+          lat: R.p null, @state.lat
+          lng: R.p null, @state.lng
 
       div className: 'status',
         if @state.status
@@ -128,16 +136,20 @@ module.exports = React.createFactory React.createClass
               when @STATUSES.NOTFOUND
                 'Could not find a location for that address'
 
-      div className: 'formated-address',
-        if @state.status in [@STATUSES.FOUND, @STATUSES.SEARCHING]
-          R.p null, @state.address
 
       div className: 'dealer',
         if @state.status is @STATUSES.FOUND
-          [
+          header:
             R.h3 null, @state.store.name
+          directions:
+            R.p null,
+              GmapsDirectionLink
+                saddr: "#{@state.lat},#{@state.lng}"
+                daddr: "#{@state.store.address},
+                        #{@state.store.city}, #{@state.store.state}"
+          addr:
             R.p
-              className: 'store-address'
+              className: 'store-address addr'
               dangerouslySetInnerHTML:
                 __html:
                   """
@@ -145,18 +157,21 @@ module.exports = React.createFactory React.createClass
                     #{@state.store.city}, #{@state.store.state}.
                     #{formaters.zipPostal(@state.store.zipPostal)}
                   """
+          distance:
             div className: 'distance',
-              R.p null, "Distance: #{@state.distance}"
-          ]
+              R.p null, "Driving distance: #{@state.distance}"
 
       div className: 'map',
         if @state.status is @STATUSES.FOUND
           Map
-            initialZoom: 10
+            initialZoom: @state.zoom
             initialCenter: @state.centre
-            width: 600
+            width: 640
             height: 400
           ,
             Marker
               position: new google.maps.LatLng(@state.lat, @state.lng)
+            Marker
+              position: new google.maps.LatLng(@state.store.lat,
+                @state.store.lng)
 
