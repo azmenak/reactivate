@@ -1,4 +1,7 @@
+DEALERS = require './data/dealers'
+
 data =
+  stores: DEALERS
   pages:
     home:
       copy:
@@ -18,46 +21,22 @@ data =
         body: 'Lorem Ipsum this floor is awesome'
         background: '<insert img src>'
       ]
-  stores: [
-    name: 'Lemonde'
-    lat: 45.5711067
-    lng: -73.44661710000003
-    zipPostal: 'J4B5L2'
-    address: '1160 Place Nobel'
-    city: 'Boucherville'
-    state: 'QC'
-    country: 'CA'
-    phone: '4506410001'
-  ,
-    name: 'Tapis Lipman'
-    lat: 45.5055876
-    lng: -73.66305950000003
-    zipPostal: 'H4N2P7'
-    address: '4240 Ch. Côte-de-Liesse'
-    city: 'Montréal'
-    state: 'QC'
-    country: 'CA'
-    phone:  '5147375022'
-  ,
-    name: 'Parquet Deluxe Lasalle'
-    lat: 45.4376003
-    lng: -73.64446570000001
-    zipPostal: 'H8R1V4'
-    address: '8801 Rue Elmslie'
-    city: 'LaSalle'
-    state: 'QC'
-    country: 'CA'
-    phone: '5143649760'
-  ,
-    name: 'Centre Du Plancher 640'
-    lat: 45.576
-    lng: -73.89347379999998
-    zipPostal: 'J7P4W9'
-    address: '560 rue Dubois'
-    city: 'St-Eustache'
-    state: 'QC'
-    country: 'CA'
-    phone: '4504915655'
-  ]
+  products:
+    ee:
+      specs:
+        species: 'White Oak'
+        grade: 'AB or ABC'
+        colorVariation: 'low'
+        glossLevel: 10
+        dimentions:
+          tickness: 19
+          width: 130
+          length: 2200
+        construction:
+          top: '6mm dry sawn'
+          core: '7mm dry sawn Canadian Pine'
+          backer: '6mm dry sawn Canadian Pine'
+
+console.log data
 
 module.exports = data
