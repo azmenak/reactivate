@@ -20,7 +20,7 @@ module.exports =
       sourceMap: true
     css_pipeline
       files: 'assets/css/*.styl'
-      out: 'css/style.css'
+      out: '/css/style.css'
   ]
 
   stylus:
