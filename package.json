@@ -6,6 +6,9 @@
     "type": "git",
     "url": "https://github.com/azmenak/reactivate"
   },
+  "bin": {
+    "imagemake": "./images.coffee"
+  },
   "dependencies": {
     "autoprefixer-stylus": "0.5.x",
     "axis": "0.3.x",
@@ -14,7 +17,9 @@
     "google-maps": "^2.1.1",
     "jade": "1.x",
     "js-pipeline": "0.2.x",
+    "lwip": "0.0.6",
     "marked": "0.3.x",
+    "mkdirp": "^0.5.0",
     "react": "^0.12.2",
     "react-googlemaps": "^0.4.0",
     "react-router": "^0.11.6",
