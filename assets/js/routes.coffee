@@ -14,7 +14,7 @@ DefaultRoute =  React.createFactory Router.DefaultRoute
 routes = Route name: 'app', handler: App, path: '/',
   Route name: 'lifestyle', handler: Lifestyle
   Route name: 'products', handler: Products
-  Route name: 'sublime', handler: Sublime
+  Route name: 'sublime', handler: Sublime, path: '/sublime/'
   Route name: 'dealers', handler: Dealers
   DefaultRoute handler: Home
 

@@ -14,7 +14,7 @@ module.exports = React.createFactory React.createClass
     '/lifestyle': 'lifestyle'
     '/products':
       name: 'products'
-      '/sublime': 'sublime'
+      '/sublime/': 'sublime'
       '/ee': 'expressive essentials'
     '/dealers': 'where to buy'
     '/gallery': 'gallery'
