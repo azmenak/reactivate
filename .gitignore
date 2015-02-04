@@ -2,3 +2,5 @@
 node_modules
 public
 ship.conf
+
+assets/img/**/export
