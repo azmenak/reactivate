@@ -12,11 +12,11 @@ module.exports =
   extensions: [
     browserify
       files: 'assets/js/main.coffee'
-      out: 'js/build.js'
+      out: '/js/build.js'
       sourceMap: true
     , css_pipeline
       files: 'assets/css/*.styl'
-      out: 'css/style.css'
+      out: '/css/style.css'
       minify: true
       hash: true
   ]

@@ -16,7 +16,7 @@ module.exports =
   extensions: [
     browserify
       files: 'assets/js/main.coffee'
-      out: 'js/build.js'
+      out: '/js/build.js'
       sourceMap: true
     css_pipeline
       files: 'assets/css/*.styl'
