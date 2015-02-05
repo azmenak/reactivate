@@ -24,7 +24,6 @@
     "react-googlemaps": "^0.4.0",
     "react-router": "^0.11.6",
     "reactify": "^1.0.0",
-    "rethinkdb": "^1.15.0",
     "roots-browserify": "^0.3.2",
     "rupture": "0.6.x",
     "stylus": "0.49.x"
