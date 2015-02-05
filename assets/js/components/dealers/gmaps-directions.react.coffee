@@ -16,4 +16,6 @@ module.exports = React.createFactory React.createClass
     React.DOM.a
       href: @getHref()
       target: '_blank'
-    , @props.label or 'Open directions in Google Maps'
+    ,
+      @props.label or 'Open directions in Google Maps '
+      React.DOM.i className: 'fa fa-map-marker'
