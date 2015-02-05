@@ -31,8 +31,8 @@ module.exports =
     MAX = 21
 
     mapDim ?= {}
-    mapDim.height ?= 640
-    mapDim.width ?= 400
+    mapDim.height ?= 400
+    mapDim.width ?= 640
 
     mapDim.height -= padding
     mapDim.width -= padding
