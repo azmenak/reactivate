@@ -1,6 +1,7 @@
 axis         = require 'axis'
 rupture      = require 'rupture'
 autoprefixer = require 'autoprefixer-stylus'
+bootstrap    = require 'bootstrap-styl'
 browserify   = require 'roots-browserify'
 css_pipeline = require 'css-pipeline'
 
@@ -24,8 +25,9 @@ module.exports =
   ]
 
   stylus:
-    use: [axis(), rupture(), autoprefixer()]
+    use: [axis(), rupture(), autoprefixer(), bootstrap()]
     sourcemap: true
+    'include css': true
 
   'coffee-script':
     sourcemap: true

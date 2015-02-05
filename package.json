@@ -12,6 +12,7 @@
   "dependencies": {
     "autoprefixer-stylus": "0.5.x",
     "axis": "0.3.x",
+    "bootstrap-styl": "^4.0.2",
     "coffee-script": "1.8.x",
     "css-pipeline": "0.2.x",
     "google-maps": "^2.1.1",
