@@ -1,5 +1,6 @@
 React = require 'react'
 Paragraphs = require '../paragraphs.react'
+SublimeProductItem = require './sublime-product-item'
 data = require '../../data'
 
 R = React.DOM
@@ -18,3 +19,9 @@ module.exports = React.createFactory React.createClass
         R.h2 null, copy.headline
         Paragraphs
           body: copy.body
+
+        div className: 'products',
+          for product in data.products.sublime
+            SublimeProductItem
+              info: product
+              key: product.images.key
