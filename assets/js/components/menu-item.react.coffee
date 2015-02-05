@@ -9,4 +9,5 @@ module.exports = React.createFactory React.createClass
     path: React.PropTypes.string.isRequired
   render: ->
     React.DOM.li className: 'menu-item',
-      Link to: @props.path, @props.children
+      Link to: @props.path,
+        @props.children
