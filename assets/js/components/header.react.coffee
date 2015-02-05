@@ -26,11 +26,13 @@ module.exports = React.createFactory React.createClass
       if typeof name is 'object'
         # Deep clone name object, otherwise name: gets deleted
         subMenu = JSON.parse(JSON.stringify(name))
-        MenuItem
-          path: path
-          key: path
-        , subMenu.name.toUpperCase(),
-          delete subMenu.name
+        delete subMenu.name
+        parent:
+          MenuItem
+            path: path
+            key: path
+          , name.name.toUpperCase()
+        children:
           R.ul className: 'sub-menu menu-items',
             for subPath, subName of subMenu
               MenuItem
