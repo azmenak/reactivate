@@ -1,0 +1,54 @@
+header.main-header
+  padding-bottom 24px
+
+  .logo
+    img
+      width 100%
+
+  nav.main-menu
+    ul.menu-items
+      padding 0
+      position relative
+
+      &.narrow
+        li.menu-item
+          float none
+          width 100%
+
+      li.menu-item
+        display block
+        float left
+        width (100/7)%
+        text-align center
+
+        background-color u-gray
+        &:nth-child(1)
+        &:nth-child(3)
+        &:nth-child(7)
+          background-color u-green
+        &:nth-child(2)
+        &:nth-child(5)
+          background-color u-orange
+
+        a
+          color white
+          text-decoration none
+          font-size 12px
+          display block
+          padding: 5px 5px
+
+        &:hover
+          > a
+            background-color #333
+
+          ul.sub-menu
+            visibility visible
+
+        ul.sub-menu
+          position absolute
+          visibility hidden
+
+          li.menu-item
+            float none
+            width auto
+            text-align left

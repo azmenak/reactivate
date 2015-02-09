@@ -5,8 +5,12 @@
   .u-right
     float left
 
+  // Menu has 7 sections
+  // align to end of first 2
+  left-width = ((100/7)*2)%
+
   .u-left
-    width 30%
+    width left-width
 
   .u-right
-    width 70%
+    width 100% - left-width

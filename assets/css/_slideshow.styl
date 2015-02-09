@@ -1,0 +1,16 @@
+.slideshow
+  .slides
+    position relative
+    clearfix()
+
+    .slide
+      visibility hidden
+      position absolute
+      top 0
+
+      &.active
+        visibility visible
+        position relative
+
+      img
+        max-width 100%
