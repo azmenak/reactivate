@@ -2,8 +2,6 @@ data = require '../data'
 React = require 'react'
 Router = require 'react-router'
 MenuItem = require './menu-item.react'
-Cx = require 'react/lib/cx'
-process = require '../utils/tag-processor'
 
 R = React.DOM
 div = R.div
@@ -50,27 +48,6 @@ module.exports = React.createFactory React.createClass
           key: path
           label: name.toUpperCase()
 
-  componentDidMount: ->
-    BASE_HEIGHT = @refs['menuItems'].getDOMNode().children[0].offsetHeight
-    init = false
-    heightCheck = =>
-      narrow = false
-      for node in @refs['menuItems'].getDOMNode().children
-        if node.offsetHeight > BASE_HEIGHT
-          narrow = true
-          break
-      if @state.narrow isnt narrow
-        @setState
-          narrow: narrow
-          narrowBreakpoint: window.innerWidth
-
-      if not init
-        @state.narrowBreakpoint = if narrow then 0 else Infinity
-
-    heightCheck() #init
-    init = true
-    window.addEventListener 'resize', heightCheck
-
   render: ->
     R.header className: 'main-header',
       div className: 'logo',
@@ -78,10 +55,5 @@ module.exports = React.createFactory React.createClass
           src: '/img/urbania.svg'
 
       R.nav className: 'main-menu',
-        R.ul
-          className: Cx
-            'menu-items': true
-            'narrow': @state.narrow
-          ref: 'menuItems'
-        ,
+        R.ul className: 'menu-items',
           @menuWalker(@menuItems)
