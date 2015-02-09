@@ -10,9 +10,9 @@ data =
         lifestyle: 'See the Urbania lifestyle'
         installation: 'Take a look at available products'
       slides: [
-        background: 'http://placehold.it/1100x367.jpg'
+        background: 'https://ununsplash.imgix.net/photo-1422479516648-9b1f0b6e8da8?q=75&fm=jpg&s=c5f2b3df2a4c71532b3b354b8766503c'
       ,
-        background: 'http://placehold.it/1100x367.jpg'
+        background: 'https://unsplash.imgix.net/photo-1416838375725-e834a83f62b7?q=75&fm=jpg&s=fc628c231023b391f54f10f92b859a0c'
       ]
     lifestyle:
       slides: [
@@ -29,6 +29,45 @@ data =
         body: 'Lorem Ipsum this floor is awesome'
         background: '<insert img src>'
       ]
+    products:
+      copy:
+        headline: 'URBANIA Products'
+        body: '''
+          Choose your collection; URBANIA Sublime a 7” wide by 7’ long plank
+          floor or URBANIA Expressive Essentials a Random Length ¾” Engineered
+          Solid Sawn available in 3.5” & 5” widths.
+        '''
+      chooser:
+        sublime:
+          image: '/img/women-lying-on-floor-square@2x.jpg'
+          copy: '''
+            URBANIA Sublime Engineered Hardwood Floors are designed for
+            discerning consumers who understand and appreciate the value of
+            uncompromising quality.
+
+            URBANIA is proud to present a product line that is truly unique,
+            one that is produced with the highest quality raw materials and
+            processed on a state of the art German production line. The
+            balanced & symmetrical product assembly, the moisture content
+            control and the vertically oriented tight grain of the core combine
+            to yield an engineered wood floor with unparalleled stability.
+
+            The finishes of the URBANIA Sublime collection were chosen to be a
+            tool in the hands of the Interior Design Professional as well as
+            those with the talent and creativity to create their own beautiful
+            spaces. We strive to offer an element within your design scheme
+            that is both unique and beautifully pleasing to the eye.
+          '''
+        ee:
+          image: '/img/two-people-lying-on-floor-square@2x.jpg'
+          copy: '''
+            The URBANIA Expressive Essentials product collection was designed and
+            built to be a main stream alternative to conventional ¾” solid strip
+            flooring. The 6 mm “Same as Solid” wear layer has a service life
+            equivalent to solid wood flooring.  The precise milling makes this
+            product very installer friendly and the traditional choice of surface
+            finishes appeal to a wide range of wood flooring consumers.
+          '''
     sublime:
       copy:
         headline: 'URBANIA Sublime Product Collection'

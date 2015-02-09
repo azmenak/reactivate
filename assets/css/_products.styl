@@ -1,3 +1,35 @@
+.products-page
+  .product-chooser
+    product-breakpoint = 523px
+    .sublime-left, .ee-right
+      width 47.5%
+      float left
+      @media (max-width: product-breakpoint)
+        width 100%
+        float none
+    .ee-right
+      margin-left 5%
+      @media (max-width: product-breakpoint)
+        margin-left 0
+
+    .selection-box
+      position relative
+      transform scale(1)
+      transition transform 0.2s ease-out
+      @media (min-width: 678px)
+        &:hover
+          transform scale(1.03)
+
+      h3
+        position absolute
+        color white
+        font-weight 300
+        font-size 40px
+        left 40px
+      img
+        max-width 100%
+
+
 .products
   .product
     .banner

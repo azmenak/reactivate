@@ -26,9 +26,13 @@ header.main-header
         &:nth-child(3)
         &:nth-child(7)
           background-color u-green
+          li.menu-item
+            background-color: u-green
         &:nth-child(2)
         &:nth-child(5)
           background-color u-orange
+          li.menu-item
+            background-color: u-orange
 
         a
           color white
@@ -38,14 +42,14 @@ header.main-header
           padding: 5px 5px
 
         &:hover
-          > a
-            background-color #333
+          background-color #333 !important
 
           ul.sub-menu
             visibility visible
 
         ul.sub-menu
           position absolute
+          z-index 50
           visibility hidden
 
           li.menu-item
