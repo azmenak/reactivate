@@ -1,5 +1,3 @@
-console.log 'hello there!'
-
 React = require 'react'
 Router = require 'react-router'
 
