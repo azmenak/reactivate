@@ -6,8 +6,14 @@ data =
   pages:
     home:
       copy:
+        headline: 'Chic Authentic'
         lifestyle: 'See the Urbania lifestyle'
         installation: 'Take a look at available products'
+      slides: [
+        background: 'http://placehold.it/1100x367.jpg'
+      ,
+        background: 'http://placehold.it/1100x367.jpg'
+      ]
     lifestyle:
       slides: [
         headline: 'the product'
@@ -25,7 +31,7 @@ data =
       ]
     sublime:
       copy:
-        headline: '[URBANIA] Sublime Product Collection'
+        headline: 'URBANIA Sublime Product Collection'
         body: '''
           At Urbania Flooring, urban style is our identity we embrace it and
           are guided by the zeitgeist of all that it means to be “Urban” in
