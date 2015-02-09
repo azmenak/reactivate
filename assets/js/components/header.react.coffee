@@ -2,12 +2,18 @@ data = require '../data'
 React = require 'react'
 Router = require 'react-router'
 MenuItem = require './menu-item.react'
+Cx = require 'react/lib/cx'
+process = require '../utils/tag-processor'
 
 R = React.DOM
 div = R.div
 
 module.exports = React.createFactory React.createClass
   displayName: 'Header'
+
+  getInitialState: ->
+    narrow: false
+    narrowBreakpoint: null
 
   menuItems:
     '/': 'home'
@@ -27,23 +33,22 @@ module.exports = React.createFactory React.createClass
         # Deep clone name object, otherwise name: gets deleted
         subMenu = JSON.parse(JSON.stringify(name))
         delete subMenu.name
-        parent:
-          MenuItem
-            path: path
-            key: path
-          , name.name.toUpperCase()
-        children:
+        MenuItem
+          path: path
+          key: path
+          label: name.name.toUpperCase()
+        ,
           R.ul className: 'sub-menu menu-items',
             for subPath, subName of subMenu
               MenuItem
                 path: subPath
                 key: subPath
-              , subName.toUpperCase()
+                label: subName.toUpperCase()
       else
         MenuItem
           path: path
           key: path
-        , name.toUpperCase()
+          label: name.toUpperCase()
 
   render: ->
     R.header className: 'main-header',
