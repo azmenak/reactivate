@@ -53,7 +53,8 @@ module.exports = React.createFactory React.createClass
   render: ->
     R.header className: 'main-header',
       div className: 'logo',
-        R.h1 null, 'URBANIA'
+        R.img
+          src: '/img/urbania.svg'
 
       R.nav className: 'main-menu',
         R.ul className: 'menu-items',
