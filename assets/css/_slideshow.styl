@@ -4,13 +4,21 @@
     clearfix()
 
     .slide
-      visibility hidden
       position absolute
       top 0
 
+      visibility hidden
+      opacity 0
+
+      time = 0.3s
+      trans = opacity time ease-out, transform time ease-out
+      transition visibility 0s linear, trans
+
       &.active
-        visibility visible
         position relative
+
+        visibility visible
+        opacity 1
 
       img
         max-width 100%
