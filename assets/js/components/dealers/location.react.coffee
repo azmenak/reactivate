@@ -39,13 +39,9 @@ module.exports = React.createFactory React.createClass
 
   componentDidMount: ->
     @refs['locationInput'].getDOMNode().focus()
-    navigator.geolocation.getCurrentPosition (position) =>
-      return unless @isMounted()
-      crd = position.coords
-      @setState
-        geo:
-          lat: crd.latitude
-          lng: crd.longitude
+    #navigator.geolocation.getCurrentPosition (position) =>
+      #return unless @isMounted()
+      #@crd = position.coords
 
   geocode: (event) ->
     GoogleMapsLoader ?= require 'google-maps'
