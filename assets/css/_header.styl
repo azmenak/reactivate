@@ -1,25 +1,25 @@
-header.main-header
-  padding-bottom 24px
+menu-breakpoint = 800px
 
+header.main-header
   .logo
     img
       width 100%
 
   nav.main-menu
+    clearfix()
+
     ul.menu-items
       padding 0
       position relative
-
-      &.narrow
-        li.menu-item
-          float none
-          width 100%
 
       li.menu-item
         display block
         float left
         width (100/7)%
         text-align center
+
+        @media (max-width: menu-breakpoint)
+          width 100%
 
         background-color u-gray
         &:nth-child(1)
