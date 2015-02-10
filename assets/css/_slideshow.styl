@@ -1,4 +1,7 @@
 .slideshow
+  position relative
+  min-height 300px
+
   .slides
     position relative
     clearfix()
@@ -23,3 +26,27 @@
 
       img
         max-width 100%
+
+  .controls
+    position absolute
+    top 50%
+    z-index 90
+    width 100%
+    transform translateY(-50%)
+    clearfix()
+
+    .control
+      &.left-control
+        float left
+      &.right-control
+        float right
+
+      color white
+      font-size 100px
+      margin 10px
+      cursor pointer
+      opacity 0.3
+      transition opacity 0.1s ease-out
+
+      &:hover
+        opacity 1

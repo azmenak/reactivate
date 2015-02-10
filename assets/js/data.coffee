@@ -1,5 +1,7 @@
 DEALERS = require './data/dealers'
 SUBLIME = require './data/sublime'
+EE      = require './data/ee'
+IMAGES  = require './data/images'
 
 data =
   stores: DEALERS
@@ -13,8 +15,12 @@ data =
         background: 'https://ununsplash.imgix.net/photo-1422479516648-9b1f0b6e8da8?q=75&fm=jpg&s=c5f2b3df2a4c71532b3b354b8766503c'
       ,
         background: 'https://unsplash.imgix.net/photo-1416838375725-e834a83f62b7?q=75&fm=jpg&s=fc628c231023b391f54f10f92b859a0c'
+      ,
+        background: 'https://ununsplash.imgix.net/reserve/unsplash_5288cc8f3571d_1.JPG?q=75&fm=jpg&s=88de4c39bd6f3eb98fef5109b471b7d1'
       ]
     lifestyle:
+      copy:
+        headline: 'The URBANIA lifestyle'
       slides: [
         headline: 'the product'
         body:
@@ -106,6 +112,9 @@ data =
           top: '6mm dry sawn'
           core: '7mm dry sawn Canadian Pine'
           backer: '6mm dry sawn Canadian Pine'
+        images:
+          set: IMAGES.productSet
+      colours: EE
     sublime: SUBLIME
 
 console.log data

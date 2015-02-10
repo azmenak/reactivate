@@ -15,4 +15,5 @@ module.exports = React.createFactory React.createClass
         Slideshow
           slides: data.pages.home.slides
           id: 'home'
+          showControls: true
       R.p className: 'lifestyle', copy.lifestyle

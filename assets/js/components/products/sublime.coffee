@@ -7,6 +7,8 @@ R = React.DOM
 div = R.div
 
 copy = data.pages.sublime.copy
+products = data.products.sublime.filter (product) ->
+  product.status is 'current'
 
 module.exports = React.createFactory React.createClass
   displayName: 'Sublime'
@@ -22,7 +24,7 @@ module.exports = React.createFactory React.createClass
           body: copy.body
 
         div className: 'products',
-          for product in data.products.sublime
+          for product in products
             SublimeProductItem
               info: product
               key: product.images.key

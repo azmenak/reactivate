@@ -12,9 +12,13 @@ module.exports = React.createFactory React.createClass
     id: React.PropTypes.string.isRequired
     slides: React.PropTypes.array.isRequired
     transitionTime: React.PropTypes.number
+    showControls: React.PropTypes.bool
+    autoplay: React.PropTypes.bool
 
   getDefaultProps: ->
     transitionTime: 6000
+    showControls: false
+    autoplay: true
 
   getInitialState: ->
     [next, prev] = switch l=@props.slides.length
@@ -34,7 +38,7 @@ module.exports = React.createFactory React.createClass
     next = if @state.next+1 <= l-1 then @state.next+1 else 0
     current = @state.next
     prev = @state.current
-    @setState {current, next, prev}
+    @setState {current, next, prev}, @resetTick
 
   prev: ->
     l = @props.slides.length
@@ -42,12 +46,11 @@ module.exports = React.createFactory React.createClass
     prev = if @state.prev-1 >= 0 then @state.prev-1 else l-1
     current = @state.prev
     next = @state.current
-    @setState {current, next, prev}
+    @setState {current, next, prev}, @resetTick
 
   keydown: (e) ->
     return if /input|textarea/i.test e.target.tagName
     return unless @isMounted()
-    @resetTick()
     key = e.keyCode or e.which
     switch key
       when KEYS.LEFT then @prev()
@@ -58,19 +61,20 @@ module.exports = React.createFactory React.createClass
     @next()
 
   resetTick: ->
-    clearInterval @interval
-    @interval = setInterval @tick, @props.transitionTime
+    return unless @props.autoplay
+    clearTimeout @timeout
+    @timeout = setTimeout @tick, @props.transitionTime
 
   componentDidMount: ->
     window.addEventListener 'keydown', @keydown
-    @interval = setInterval @tick, @props.transitionTime
+    @resetTick()
   componentDidUnmount: ->
     window.removeEventListener 'keydown', @keydown
-    clearInterval @interval
+    clearTimeout @timeout
 
   render: ->
     div className: 'slideshow', id: "slideshow-#{@props.id}",
-      div className: 'slides', ref: 'slides',
+      slides: div className: 'slides', ref: 'slides',
         for slide, i in @props.slides
           div
             className: Cx
@@ -83,3 +87,16 @@ module.exports = React.createFactory React.createClass
             R.img
               src: slide.background
               alt: slide.headline or "Slideshow slide #{i}"
+      controls:
+        if @props.showControls
+          div className: 'controls',
+            div
+              className: 'left-control control'
+              onClick: @prev
+            ,
+              R.i className: 'fa fa-angle-left'
+            div
+              className: 'right-control control'
+              onClick: @next
+            ,
+              R.i className: 'fa fa-angle-right'

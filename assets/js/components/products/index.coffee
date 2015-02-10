@@ -15,6 +15,10 @@ module.exports = React.createFactory React.createClass
 
   render: ->
     div className: 'products-page',
+      div className: 'banner',
+        R.img
+          src: '/img/feet-on-floor-banner@2x.jpg'
+          alt: 'Feet on the floor'
       R.h2 null, copy.headline
       R.p className: 'body', copy.body
       div className: 'product-chooser',

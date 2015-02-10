@@ -1,4 +1,5 @@
 React = require 'react'
+Slideshow = require '../slideshow'
 data = require '../../data'
 
 R = React.DOM
@@ -9,4 +10,10 @@ module.exports = React.createFactory React.createClass
 
   render: ->
     div className: 'page-lifestyle',
-      R.h2 null, 'URBANIA: its a lifestyle'
+      R.h2 null, data.pages.lifestyle.copy.headline
+      div className: 'slideshow-box',
+        Slideshow
+          slides: data.pages.lifestyle.slides
+          id: 'lifestyle'
+          showControls: true
+          autoplay: false
