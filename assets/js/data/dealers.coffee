@@ -66,7 +66,7 @@ quebec = [
   address: '5 côte Saint-Grégoire'
   city: 'Québec'
   state: 'QC'
-  countr: 'CA'
+  country: 'CA'
   phone: '4186633147'
 ,
   name: 'Couvres-planchers Paul Loiselle et Fils'
@@ -76,7 +76,7 @@ quebec = [
   address: '580, boul. Mgr Langlois'
   city: 'Salaberry-de-Valleyfield'
   state: 'QC'
-  countr: 'CA'
+  country: 'CA'
   phone: '4503734469'
 ,
   name: 'Bois Franc Lavallée'
@@ -92,14 +92,15 @@ quebec = [
 
 ontario = [
   name: 'eFloor Toronto'
-  lat: 43.6972928
-  lng: -79.46313729999997
+  lat: 43.6971456
+  lng: -79.46313399999997
   zipPostal: 'M6E5A8'
   address: '687 Caledonia Rd'
   city: 'Toronto'
   state: 'ON'
   country: 'CA'
   phone: '4166308855'
+  website: 'http://efloor.ca/'
 ,
   name: 'Rosewood Flooring'
   website: 'http://rosewoodflooring.com/'
@@ -133,6 +134,72 @@ ontario = [
   state: 'ON'
   country: 'CA'
   phone: '5197347911'
+,
+  name: 'Underfoot Flooring Consultants'
+  website: 'http://underfoot.com/'
+  address: '101 - 4093 Meadowbrook Drive'
+  lat: 42.919312
+  lng: -81.26697059999998
+  zipPostal: 'N6L1G1'
+  city: 'London'
+  state: 'ON'
+  country: 'CA'
+  phone: '5196525900'
+,
+  name: 'Flatout Flooring'
+  website: 'http://www.flatoutflooring.ca/'
+  address: '3537 White Oak Road'
+  lat: 42.92437350000001
+  lng: -81.24887869999998
+  zipPostal: 'N6E3A1'
+  city: 'London'
+  state: 'ON'
+  country: 'CA'
+  phone: '5196817771'
+,
+  name: 'Factory Flooring Carpet One'
+  website: 'http://www.factoryflooringkitchener.com/'
+  address: '990 Victoria Street North'
+  lat: 43.4650785
+  lng: -80.4622885
+  zipPostal: 'N2B3C4'
+  city: 'Kitchener'
+  state: 'ON'
+  country: 'CA'
+  phone: '5195710550'
+,
+  name: 'Len Koebel Flooring'
+  website: 'http://www.lenkoebelflooring.com/'
+  address: '407 Gage Avenue'
+  lat: 43.4451089
+  lng: -80.52189150000004
+  zipPostal: 'N2M5E1'
+  city: 'Kitchener'
+  state: 'ON'
+  country: 'CA'
+  phone: '5198855685'
+,
+  name: 'Galt Tile & Carpet'
+  website: 'http://www.galttileandcarpet.ca/'
+  address: '210 Sheldon Drive'
+  lat: 43.4064924
+  lng: -80.30656729999998
+  zipPostal: 'N1T1A8'
+  city: 'Cambridge'
+  state: 'ON'
+  country: 'CA'
+  phone: '5196219070'
+,
+  name: 'Flooring Canada Tillsonburg'
+  website: 'http://www.flooringcanadatillsonburg.com/'
+  address: '163 Tillson Ave'
+  lat: 42.8700858
+  lng: -80.7246806
+  zipPostal: 'N4G0E6'
+  city: 'Tillsonburg'
+  state: 'ON'
+  country: 'CA'
+  phone: '5196888736'
 ]
 
 module.exports = [].concat ontario, quebec

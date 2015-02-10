@@ -37,7 +37,7 @@ data =
       ]
     products:
       copy:
-        headline: 'URBANIA Products'
+        headline: 'URBANIA Collections'
         body: '''
           Choose your collection; URBANIA Sublime a 7” wide by 7’ long plank
           floor or URBANIA Expressive Essentials a Random Length ¾” Engineered
@@ -67,12 +67,12 @@ data =
         ee:
           image: '/img/two-people-lying-on-floor-square@2x.jpg'
           copy: '''
-            The URBANIA Expressive Essentials product collection was designed and
-            built to be a main stream alternative to conventional ¾” solid strip
-            flooring. The 6 mm “Same as Solid” wear layer has a service life
-            equivalent to solid wood flooring.  The precise milling makes this
-            product very installer friendly and the traditional choice of surface
-            finishes appeal to a wide range of wood flooring consumers.
+            The URBANIA Expressive Essentials product collection was designed
+            and built to be a main stream alternative to conventional ¾” solid
+            strip flooring. The 6 mm “Same as Solid” wear layer has a service
+            life equivalent to solid wood flooring.  The precise milling makes
+            this product very installer friendly and the traditional choice of
+            surface finishes appeal to a wide range of wood flooring consumers.
           '''
     sublime:
       copy:

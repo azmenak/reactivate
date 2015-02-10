@@ -14,8 +14,9 @@ module.exports = React.createFactory React.createClass
 
   render: ->
     React.DOM.a
+      className: 'btn btn-default'
       href: @getHref()
       target: '_blank'
     ,
-      @props.label or 'Open directions in Google Maps '
       React.DOM.i className: 'fa fa-map-marker'
+      React.DOM.span null, @props.label or 'Open directions in Google Maps '

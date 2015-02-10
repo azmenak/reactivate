@@ -84,7 +84,6 @@ module.exports = React.createFactory React.createClass
           destinations: storeLocations
         distanceMatrix.getDistanceMatrix matrixRequest, (matrix) =>
           return unless @isMounted()
-          console.log matrix
           stores = matrix.rows[0].elements
           sortedStores = stores.slice(0)
           sortedStores.sort (a, b) ->
@@ -141,8 +140,6 @@ module.exports = React.createFactory React.createClass
           div className: 'formated-address',
             if @state.status in [@STATUSES.FOUND, @STATUSES.SEARCHING]
               addr: R.p className: 'addr', @state.address
-              lat: R.p null, @state.lat
-              lng: R.p null, @state.lng
 
           div className: 'status',
             if @state.status
@@ -178,6 +175,22 @@ module.exports = React.createFactory React.createClass
                         #{@state.store.city}, #{@state.store.state}.
                         #{formaters.zipPostal(@state.store.zipPostal)}
                       """
+              phone:
+                if @state.store.phone?
+                  R.p className: 'vcard',
+                    'Phone: '
+                    R.span className: 'tel',
+                      formaters.phoneNumber @state.store.phone
+              website:
+                if @state.store.website?
+                  R.p className: 'website',
+                    'Website: '
+                    R.a
+                      className: 'website'
+                      href: @state.store.website
+                      target: '_blank'
+                    , formaters.webAddr @state.store.website
+
               distance:
                 div className: 'distance',
                   R.p null, "Driving distance: #{@state.distance}"

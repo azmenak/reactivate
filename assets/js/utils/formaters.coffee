@@ -8,3 +8,10 @@ module.exports =
       zp.trim()
     else
       @postalCode(zp)
+
+  phoneNumber: (numString) ->
+    numString.replace /(\d{3})(\d{3})(\d{4})/, '($1) $2-$3'
+
+  webAddr: (web) ->
+    web.replace /^((https?\:\/\/)?(www)?\.?)/, ''
+      .replace /(\/)$/, ''
