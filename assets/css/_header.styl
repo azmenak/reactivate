@@ -39,13 +39,23 @@ header.main-header
           text-decoration none
           font-size 12px
           display block
-          padding: 5px 5px
+          padding 5px 5px
+          @media (max-width: menu-breakpoint)
+            padding 8px 15px
 
         &:hover
           background-color #333 !important
 
           ul.sub-menu
             visibility visible
+            @media (max-width: menu-breakpoint)
+              position relative
+              border-top 1px solid #FFF
+              border-bottom 1px solid #FFF
+              padding-left 30px
+              box-sizing border-box
+              background #FFF
+              width 100%
 
         ul.sub-menu
           position absolute
