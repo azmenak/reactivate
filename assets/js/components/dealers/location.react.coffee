@@ -36,9 +36,13 @@ module.exports = React.createFactory React.createClass
     store: null
     address: null
     geo: null
+    isMobile: false
 
   componentDidMount: ->
     @refs['locationInput'].getDOMNode().focus()
+    if window.orientation?
+      @setState
+        isMobile: true
     #navigator.geolocation.getCurrentPosition (position) =>
       #return unless @isMounted()
       #@crd = position.coords
@@ -179,8 +183,10 @@ module.exports = React.createFactory React.createClass
                 if @state.store.phone?
                   R.p className: 'vcard',
                     'Phone: '
-                    R.span className: 'tel',
-                      formaters.phoneNumber @state.store.phone
+                    R.a
+                      className: 'tel'
+                      href: "tel:+1#{@state.store.phone}"
+                    , formaters.phoneNumber @state.store.phone
               website:
                 if @state.store.website?
                   R.p className: 'website',
