@@ -70,6 +70,9 @@ module.exports = React.createFactory React.createClass
           @setState status: @STATUSES.NOTFOUND
           return
         location = results[0].geometry.location
+        console.log
+          lat: location.lat()
+          lng: location.lng()
         @setState
           status: @STATUSES.SEARCHING
           address: results[0].formatted_address
