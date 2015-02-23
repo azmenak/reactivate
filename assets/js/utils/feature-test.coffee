@@ -13,6 +13,15 @@ FeatureTest =
       !!document.createElementNS and
       !!document.createElementNS('http://www.w3.org/2000/svg', 'svg')
         .createSVGRect
+    transitionEndEvent: ->
+      el = document.createElement 'div'
+      transitions =
+        'transition':'transitionend'
+        'OTransition':'otransitionend'
+        'MozTransition':'transitionend'
+        'WebkitTransition':'webkitTransitionEnd'
+      for key, val of transitions
+        if transitions.hasOwnProperty(key) and el.style[key]? then val
 
 module.exports = (t) ->
   return unless window?
