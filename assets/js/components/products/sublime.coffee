@@ -16,7 +16,7 @@ module.exports = React.createFactory React.createClass
   render: ->
     div className: 'sublime-page u-grid',
       div className: 'u-left',
-        R.h3 null, 'Product Specifications'
+        R.h2 null, 'Specs'
 
       div className: 'u-right',
         R.h2 null, copy.headline
