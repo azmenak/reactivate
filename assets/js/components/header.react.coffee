@@ -3,6 +3,9 @@ React = require 'react'
 Router = require 'react-router'
 MenuItem = require './menu-item.react'
 
+routes = require '../routes'
+RouterUtils = require '../utils/router-utils'
+
 R = React.DOM
 div = R.div
 
@@ -13,40 +16,34 @@ module.exports = React.createFactory React.createClass
     narrow: false
     narrowBreakpoint: null
 
-  menuItems:
-    '/': 'home'
-    '/lifestyle': 'lifestyle'
-    '/products':
-      name: 'products'
-      '/sublime': 'sublime'
-      '/ee': 'expressive essentials'
-    '/dealers': 'where to buy'
-    '/gallery': 'gallery'
-    '/testimonials': 'testimonials'
-    '/contact': 'contact'
+  menuItems: do ->
+    routeTree = RouterUtils.routeTree routes
+    console.log routeTree
+    children = JSON.parse(JSON.stringify(routeTree.children))
+    children.push
+      path: routeTree.path
+      name: routeTree.name
+      order: routeTree.order
+    children
+      .filter (c) -> c.order?
+      .sort (a,b) -> +(a.order > b.order) or +(a.order is b.order) - 1
 
-  menuWalker: (menu) ->
-    for path, name of menu
-      if typeof name is 'object'
-        # Deep clone name object, otherwise name: gets deleted
-        subMenu = JSON.parse(JSON.stringify(name))
-        delete subMenu.name
-        MenuItem
-          path: path
-          key: path
-          label: name.name.toUpperCase()
-        ,
+  menuTree: (menu) ->
+    if Object::toString.call(menu)[8...-1].toLowerCase() is 'array'
+      R. ul className: 'menu-items',
+        for menuChild in menu
+          @menuTree menuChild
+    else
+      return unless menu.path? and menu.name? and menu.order?
+      MenuItem
+        path: menu.path.toLowerCase()
+        key: menu.path
+        label: menu.name.toUpperCase()
+      ,
+        if menu.children?
           R.ul className: 'sub-menu menu-items',
-            for subPath, subName of subMenu
-              MenuItem
-                path: subPath
-                key: subPath
-                label: subName.toUpperCase()
-      else
-        MenuItem
-          path: path
-          key: path
-          label: name.toUpperCase()
+            for subMenu in menu.children
+              @menuTree subMenu
 
   render: ->
     R.header className: 'main-header',
@@ -55,5 +52,4 @@ module.exports = React.createFactory React.createClass
           src: '/img/urbania.svg'
 
       R.nav className: 'main-menu',
-        R.ul className: 'menu-items',
-          @menuWalker(@menuItems)
+        @menuTree(@menuItems)
