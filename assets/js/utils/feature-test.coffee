@@ -7,7 +7,7 @@ FeatureTest =
   results: {}
   tests:
     touchEvents: ->
-      'ontouchstart' in window or
+      ('ontouchstart' of window) or
       window.DocumentTouch and document instanceof DocumentTouch
     svg: ->
       !!document.createElementNS and
