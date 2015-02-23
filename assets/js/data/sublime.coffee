@@ -8,13 +8,20 @@ STATUSES =
   discontinued: 'discontinued'
   removed: 'removed'
 
+VENDORS =
+  huade: 'Dalian Huade'
+  bm: 'Best Mountain Floors'
+
+SPECS =
+  dimentions: DIMENTIONS.sublime
+  composition: COMPOSITION.nineteenFour
+  species: SPECIES.russianWhiteOak
+
 module.exports = [
   name: 'Sugar and Spice'
+  vendor: VENDORS.huade
   status: STATUSES.current
   brightness: 0.8
-  species: SPECIES.russianWhiteOak
-  dimentions: DIMENTIONS.standard
-  composition: COMPOSITION.nineteenSix
   description: '''
     Brushed two tone, white over contrasting dark gray.
   '''
@@ -23,11 +30,9 @@ module.exports = [
     set: IMAGES.productSet
 ,
   name: 'Olive Ebony Gray'
+  vendor: VENDORS.huade
   status: STATUSES.discontinued
   brightness: 0.2
-  species: SPECIES.russianWhiteOak
-  dimentions: DIMENTIONS.standard
-  composition: COMPOSITION.nineteenSix
   description: '''
     Brushed back olive gray over contrasting black grain.
   '''
@@ -36,11 +41,9 @@ module.exports = [
     set: IMAGES.productSet
 ,
   name: 'Ivory and Clay'
+  vendor: VENDORS.huade
   status: STATUSES.current
   brightness: 0.6
-  species: SPECIES.russianWhiteOak
-  dimentions: DIMENTIONS.standard
-  composition: COMPOSITION.nineteenSix
   description: '''
     Brushed two tone taupe over white grain
   '''
@@ -49,11 +52,9 @@ module.exports = [
     set: IMAGES.productSet
 ,
   name: 'Dun Taupe'
+  vendor: VENDORS.huade
   status: STATUSES.current
   brightness: 0.5
-  species: SPECIES.russianWhiteOak
-  dimentions: DIMENTIONS.standard
-  composition: COMPOSITION.nineteenSix
   description: '''
     Brushed light brown taupe
   '''
@@ -62,11 +63,9 @@ module.exports = [
     set: IMAGES.productSet
 ,
   name: 'Burnt Alabaster'
+  vendor: VENDORS.huade
   status: STATUSES.current
   brightness: 0.7
-  species: SPECIES.russianWhiteOak
-  dimentions: DIMENTIONS.standard
-  composition: COMPOSITION.nineteenSix
   description: '''
     Double smoked oak natural, brushed
   '''

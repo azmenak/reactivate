@@ -2,9 +2,11 @@ DEALERS = require './data/dealers'
 SUBLIME = require './data/sublime'
 EE      = require './data/ee'
 IMAGES  = require './data/images'
+GALLERY = require './data/gallery'
 
 data =
   stores: DEALERS
+  gallery: GALLERY
   pages:
     home:
       copy:
@@ -12,28 +14,24 @@ data =
         lifestyle: 'See the Urbania lifestyle'
         installation: 'Take a look at available products'
       slides: [
-        background: 'https://ununsplash.imgix.net/photo-1422479516648-9b1f0b6e8da8?q=75&fm=jpg&s=c5f2b3df2a4c71532b3b354b8766503c'
-      ,
-        background: 'https://unsplash.imgix.net/photo-1416838375725-e834a83f62b7?q=75&fm=jpg&s=fc628c231023b391f54f10f92b859a0c'
-      ,
-        background: 'https://ununsplash.imgix.net/reserve/unsplash_5288cc8f3571d_1.JPG?q=75&fm=jpg&s=88de4c39bd6f3eb98fef5109b471b7d1'
+        background: '/img/room-with-fireplace-slide@2x.jpg'
       ]
     lifestyle:
       copy:
         headline: 'The URBANIA lifestyle'
       slides: [
-        headline: 'the product'
+        headline: 'The product'
         body:
           'The Urbania brand is a hardwood flooring product driven by design
           aesthetics combined with the superior quality of real wood flooring.
           The unmistakable wood grain and innovative colours are created with
           advanced finishing techniques, providing a unique hardwood flooring
           look that is modern and contemporary.'
-        background: '<insert img src>'
+        background: '/img/women-lying-on-floor-long-slide@2x.jpg'
       ,
         headline: 'the experience'
         body: 'Lorem Ipsum this floor is awesome'
-        background: '<insert img src>'
+        background: '/img/room-with-two-couches-slide@2x.jpg'
       ]
     products:
       copy:
@@ -116,7 +114,5 @@ data =
           set: IMAGES.productSet
       colours: EE
     sublime: SUBLIME
-
-console.log data
 
 module.exports = data

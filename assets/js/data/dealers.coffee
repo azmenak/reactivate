@@ -88,6 +88,17 @@ quebec = [
   state: 'QC'
   country: 'CA'
   phone: '5146309663'
+,
+  name: 'Plancers Gagné'
+  zipPostal: 'G2E5W2'
+  address: '104-6245, boul. Wilfrid-Hamel'
+  city: 'L\'Ancienne-Lorette'
+  state: 'QC'
+  country: 'CA'
+  lat: 46.796366
+  lng: -71.34776019999998
+  phone: '4187807248'
+  website: 'http://www.boisfrancgagne.com'
 ]
 
 ontario = [
@@ -200,6 +211,39 @@ ontario = [
   state: 'ON'
   country: 'CA'
   phone: '5196888736'
+,
+  name: 'Trafalgar Hardwood Floors'
+  website: 'http://www.trafalgarhardwoodfloors.com/'
+  address: '2396 Queensway Dr'
+  lat: 43.349853
+  lng: -79.8054548
+  zipPostal: 'L7R3T3'
+  city: 'Burlington'
+  state: 'ON'
+  country: 'CA'
+  phone: '9056344400'
+,
+  name: 'Rosewood Flooring'
+  website: 'http://rosewoodflooring.com/'
+  address: '49 Bakersfield St'
+  lat: 43.7565064
+  lng: -79.48066489999997
+  zipPostal: 'M3J1Z4'
+  city: 'Toronto'
+  state: 'ON'
+  country: 'CA'
+  phone: '4166335757'
+,
+  name: 'Barwood Flooring'
+  website: 'http://barwoodfloors.com/'
+  address: '860 Progress Ave'
+  lat: 43.78102730000001
+  lng: -79.23858389999998
+  zipPostal: 'M1H2X5'
+  city: 'Scarborough'
+  state: 'ON'
+  country: 'CA'
+  phone: '4164314800'
 ]
 
 module.exports = [].concat ontario, quebec
