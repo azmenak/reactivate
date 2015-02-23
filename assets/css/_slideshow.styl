@@ -10,12 +10,14 @@
       position absolute
       z-index 10
       top 0
+      height 100%
+      width 100%
 
       visibility hidden
       opacity 0
 
       time = 0.3s
-      trans = opacity time ease-out, transform time ease-out
+      trans = opacityity time ease-out, transform time ease-out
       transition visibility 0s linear, trans
 
       &.active
@@ -47,6 +49,22 @@
       cursor pointer
       opacity 0.3
       transition opacity 0.1s ease-out
+      user-select none
 
-      &:hover
-        opacity 1
+      .can-hover &
+        &:hover
+          opacity 1
+
+  .filmstrip
+    img
+      width 40px
+      margin-right 2px
+      cursor pointer
+      transition transform 0.1s ease-out
+      transform scale(1), translateY(0)
+      .can-hover &
+        &:hover
+          transform scale(1.1)
+
+      &.active
+        transform translateY(10px)
