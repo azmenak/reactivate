@@ -58,7 +58,7 @@ gulp.task 'imgs', ['imgmake'], ->
 gulp.task 'imgmake', ->
   gulp.src '', read: false
     .pipe $.if(!'--skip-imgmake' of userArgs,
-      $.shell(['imagemake --all'])t)
+      $.shell(['imagemake --all']))
 
 gulp.task 'clean', ->
   del = require 'del'
