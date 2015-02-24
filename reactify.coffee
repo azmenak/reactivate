@@ -4,9 +4,6 @@ routes = require('./assets/js/routes')
 
 data = require './assets/js/data'
 
-#global = Function('return this')() or (42; eval)('this')
-#global.data ?= data
-
 reactify = (path) ->
   res = null
   Router.run routes, path, (fn) ->
