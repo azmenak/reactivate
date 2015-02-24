@@ -14,3 +14,7 @@ module.exports =
       length: 1860
       width: 189
       thickness: 19
+    imperial:
+      length: '6ft 1¼in'
+      width: '7½in'
+      thickness: '¾in'

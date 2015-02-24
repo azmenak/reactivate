@@ -83,14 +83,14 @@ data =
           We strive to create a product that will resonate within the design
           community; professionals as well as those with the talent and
           creativity to create their own beautiful spaces. The Sublime
-          Collection features 16 unique floors, from the rich brown tones of
+          Collection features 10 unique floors, from the rich brown tones of
           double smoked White Oak to the luxurious surface textures created by
           manually scrapping and distressing one plank at a time, we are
           confident that the Urbania Sublime collection can be that
           indispensable resource at the heart of your design inspirations.
 
-          The Sublime Collection stands alone in the market as a 3/4″ thick, 7
-          foot long and 7 inch wide engineered plank, we feature a 1/4″ dry
+          The Sublime Collection stands alone in the market as a ¾″ thick, 6
+          foot long and 7.5 inch wide engineered plank, we feature a ⅙″ dry
           sawn wear layer that will stand the test of time. You have all the
           benefits of a solid flooring element with the stability only possible
           with the “Engineered in Germany” dry sawn cross grain construction.
