@@ -13,7 +13,7 @@ module.exports = React.createFactory React.createClass
     React.DOM.li
       className: Cx
         'menu-item': true
-        'menu-parent': @props.children?
+        'menu-parent': @props.children?.length > 0
     ,
       Link to: @props.path, @props.label
       @props.children

@@ -39,7 +39,7 @@ module.exports = React.createFactory React.createClass
         key: menu.path
         label: menu.name.toUpperCase()
       ,
-        if menu.children?
+        if menu.children?.length > 0
           R.ul className: 'sub-menu menu-items',
             for subMenu in menu.children
               @menuTree subMenu
