@@ -10,6 +10,8 @@ assets      = out
 PROD = if process.env.NODE_ENV is 'production' then true else false
 DEV = -> not PROD
 
+userArgs = process.argv.slice 2
+
 gulp.task 'styles', ->
   autoprefixer = require 'autoprefixer-core'
   processors = [
@@ -55,7 +57,8 @@ gulp.task 'imgs', ['imgmake'], ->
 
 gulp.task 'imgmake', ->
   gulp.src '', read: false
-    .pipe $.shell(['imagemake --all'])
+    .pipe $.if(!'--skip-imgmake' of userArgs,
+      $.shell(['imagemake --all'])t)
 
 gulp.task 'clean', ->
   del = require 'del'
@@ -85,5 +88,5 @@ gulp.task 'build', ['clean', 'html', 'styles', 'imgs', 'js'], ->
 
 gulp.task 'deploy', ['clean', 'html', 'imgs', 'styles', 'js'], ->
   deploy = require 'gulp-gh-pages'
-  gulp.src "#{out}/**/*"
+  gulp.src ["#{out}/**/*", 'CNAME']
     .pipe deploy()
