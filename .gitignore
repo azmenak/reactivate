@@ -5,3 +5,4 @@ ship.conf
 node_modules/*
 !node_modules/app
 assets/img/**/export
+build
