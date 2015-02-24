@@ -17,6 +17,26 @@ module.exports = React.createFactory React.createClass
     div className: 'sublime-page u-grid',
       div className: 'u-left',
         R.h2 null, 'Specs'
+        div className: 'specs',
+          div className: 'spec',
+            R.h4 null, 'Dimentions'
+            R.dl null,
+              R.dt null, 'Length: '
+              R.dd null, '1860 mm'
+            R.dl null,
+              R.dt null, 'Width: '
+              R.dd null, '189 mm'
+            R.dl null,
+              R.dt null, 'Tickness: '
+              R.dd null, '19 mm'
+        div className: 'spec',
+          R.h4 null, 'Contstruction'
+          R.dl null,
+            R.dt null, 'Ware-layer: '
+            R.dd null, '4 mm dry sawn hardwood'
+          R.dl null,
+            R.dt null, 'Core Material: '
+            R.dd null, '15 mm Siberian Larch plywood'
 
       div className: 'u-right',
         R.h2 null, copy.headline
