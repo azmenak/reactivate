@@ -7,6 +7,8 @@ reactify    = require 'cli/reactify'
 htmlMin     = require 'html-minifier'
 Q           = require 'q'
 
+PROD = process.env.NODE_ENV == 'production'
+
 routeTree = routerUtils.routeTree routes
 paths = []
 treeWalker = (node) ->
@@ -28,8 +30,10 @@ module.exports = (location = 'pages') ->
           htmlString = layout content: reactify(path)
           minifiedHTML = htmlMin.minify htmlString
           fs.writeFile file, minifiedHTML, (err) ->
-            if err then console.log err
-            else console.log file
+            if err
+              unless PROD then console.log err
+            else
+              unless PROD then console.log file
             deferred.resolve file
 
   deferred.promise
