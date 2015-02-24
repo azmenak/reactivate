@@ -1,8 +1,7 @@
 .DS_Store
 public
-ship.conf
-
+build
 node_modules/*
 !node_modules/app
+!node_modules/cli
 assets/img/**/export
-build
