@@ -8,8 +8,8 @@ module.exports = (key, size, info, path, outpath) ->
   else
     outpath = path.split('/')[...-1].concat('export').join('/') + '/'
 
-  smallDeferred = Q.defer().promise
-  largeDeferred = Q.defer().promise
+  smallDeferred = Q.defer()
+  largeDeferred = Q.defer()
 
   lwip.open path, (err, img) ->
     hwRatio = img.height() / img.width()
@@ -54,4 +54,4 @@ module.exports = (key, size, info, path, outpath) ->
           console.timeEnd "#{key}:#{size}"
           smallDeferred.resolve()
 
-  Q.all [smallDeferred, largeDeferred]
+  Q.all [smallDeferred.promise, largeDeferred.promise]
