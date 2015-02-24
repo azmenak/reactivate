@@ -48,9 +48,10 @@ module.exports = React.createFactory React.createClass
             R.p null,
               '6710 Maritz Dr.'
               R.br null
-              'Mississauga Ontario, L5W 0A1'
+              'Mississauga, Ontario, '
+              R.span className: 'zip-postal', 'L5W 0A1'
               R.br null
-              'Cananda'
+              'Canada'
           div className: 'phone',
             R.p null,
               'Phone: '
