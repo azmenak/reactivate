@@ -1,8 +1,6 @@
-React = require 'react'
+React  = require 'react'
 Router = require 'react-router'
-routes = require('./assets/js/routes')
-
-data = require './assets/js/data'
+routes = require 'app/routes'
 
 reactify = (path) ->
   res = null

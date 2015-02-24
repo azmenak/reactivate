@@ -1,4 +1,4 @@
-React = require 'react'
+React  = require 'react'
 Router = require 'react-router'
 
 routes = require './routes'

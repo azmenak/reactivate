@@ -4,7 +4,7 @@ process.on 'exit', (code) ->
   console.log '\n'
   console.timeEnd 'TOTAL TIME'
 
-userArgs = process.argv.slice(2)
+userArgs = process.argv.slice 2
 
 fs              = require 'fs'
 mkdirp          = require 'mkdirp'

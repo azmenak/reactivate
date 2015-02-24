@@ -17,9 +17,3 @@ module.exports = React.createFactory React.createClass
           slides: data.pages.home.slides
           id: 'home'
           showControls: true
-
-      #div className: 'home-grid',
-        #div className: 'home-grid-left',
-          #R.p className: 'lifestyle', copy.lifestyle
-        #div className: 'home-grid-right',
-          #R.p className: 'installation-spotlight', 'install spotlight'

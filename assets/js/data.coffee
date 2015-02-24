@@ -14,7 +14,7 @@ data =
         lifestyle: 'See the Urbania lifestyle'
         installation: 'Take a look at available products'
       slides: [
-        background: '/img/room-with-fireplace-slide@2x.jpg'
+        background: '/img/stock/export/room-with-fireplace-slide@2x.jpg'
       ]
     lifestyle:
       copy:
@@ -27,11 +27,11 @@ data =
           The unmistakable wood grain and innovative colours are created with
           advanced finishing techniques, providing a unique hardwood flooring
           look that is modern and contemporary.'
-        background: '/img/women-lying-on-floor-long-slide@2x.jpg'
+        background: '/img/stock/export/women-lying-on-floor-long-slide@2x.jpg'
       ,
         headline: 'the experience'
         body: 'Lorem Ipsum this floor is awesome'
-        background: '/img/room-with-two-couches-slide@2x.jpg'
+        background: '/img/stock/export/room-with-two-couches-slide@2x.jpg'
       ]
     products:
       copy:
