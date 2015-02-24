@@ -1,3 +1,4 @@
+Q     = require 'q'
 lwip  = require 'lwip'
 
 module.exports = (key, size, info, path, outpath) ->
@@ -6,6 +7,9 @@ module.exports = (key, size, info, path, outpath) ->
     outpath += '/' unless outpath[-1..] is '/'
   else
     outpath = path.split('/')[...-1].concat('export').join('/') + '/'
+
+  smallDeferred = Q.defer().promise
+  largeDeferred = Q.defer().promise
 
   lwip.open path, (err, img) ->
     hwRatio = img.height() / img.width()
@@ -37,6 +41,7 @@ module.exports = (key, size, info, path, outpath) ->
           (err) ->
             console.log err if err
             console.timeEnd "#{key}:#{size}"
+            largeDeferred.resolve()
     console.time "#{key}:#{size}"
     batch = img.batch()
     if info.blur?
@@ -47,3 +52,6 @@ module.exports = (key, size, info, path, outpath) ->
         (err) ->
           console.log err if err
           console.timeEnd "#{key}:#{size}"
+          smallDeferred.resolve()
+
+  Q.all [smallDeferred, largeDeferred]

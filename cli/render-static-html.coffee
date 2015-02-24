@@ -5,6 +5,7 @@ routes      = require 'app/routes'
 routerUtils = require 'app/utils/router-utils'
 reactify    = require 'cli/reactify'
 htmlMin     = require 'html-minifier'
+Q           = require 'q'
 
 routeTree = routerUtils.routeTree routes
 paths = []
@@ -15,10 +16,10 @@ treeWalker = (node) ->
   paths.push node.path
 treeWalker routeTree
 
-layout = jade.compileFile './layout.jade', pretty: true
-
+layout = jade.compileFile './layout.jade'
 
 module.exports = (location = 'pages') ->
+  deferred = Q.defer()
   mkdirp "./#{location}", ->
     for path in paths
       do (path) ->
@@ -29,3 +30,6 @@ module.exports = (location = 'pages') ->
           fs.writeFile file, minifiedHTML, (err) ->
             if err then console.log err
             else console.log file
+            deferred.resolve file
+
+  deferred.promise
