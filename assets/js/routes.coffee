@@ -24,7 +24,7 @@ routes = Route name: 'home', handler: App, path: '/', order: 0,
   Route
     name: 'lifestyle'
     handler: Lifestyle
-    path: '/Lifestyle/?'
+    path: '/lifestyle/?'
     order: 1
   Route
     name: 'products'
