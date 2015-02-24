@@ -50,7 +50,7 @@ gulp.task 'js', ->
     .pipe gulp.dest("#{assets}/js")
 
 gulp.task 'imgs', ->
-  gulp.src 'assets/img/**/*'
+  gulp.src 'assets/img/**/export/**/*'
     .pipe gulp.dest("#{assets}/img")
 
 gulp.task 'clean', ->
