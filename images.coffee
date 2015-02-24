@@ -1,7 +1,7 @@
 #! /usr/bin/env coffee
 console.time 'TOTAL TIME'
 process.on 'exit', (code) ->
-  console.log '\n'
+  console.log ''
   console.timeEnd 'TOTAL TIME'
 
 userArgs = process.argv.slice 2
