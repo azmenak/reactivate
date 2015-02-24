@@ -60,6 +60,10 @@ gulp.task 'imgmake', ->
     .pipe $.if(!'--skip-imgmake' of userArgs,
       $.shell(['imagemake --all']))
 
+gulp.task 'extras', ->
+  gulp.src 'CNAME'
+    .pipe gulp.dest("#{out}")
+
 gulp.task 'clean', ->
   del = require 'del'
   del [out]
@@ -86,7 +90,7 @@ gulp.task 'build', ['clean', 'html', 'styles', 'imgs', 'js'], ->
   gulp.src "#{out}/**/*"
     .pipe $.size(title: 'Build', gzip: 'True')
 
-gulp.task 'deploy', ['clean', 'html', 'imgs', 'styles', 'js'], ->
-  deploy = require 'gulp-gh-pages'
-  gulp.src ["#{out}/**/*", 'CNAME']
-    .pipe deploy()
+gulp.task 'deploy', ['clean', 'html', 'imgs', 'styles', 'js', 'extras'], (cb)->
+  ghPages = require 'gh-pages'
+  path = require 'path'
+  ghPages.publish path.join(__dirname, 'build'), cb
