@@ -9,3 +9,6 @@ module.exports = React.createFactory React.createClass
   render: ->
     div className: 'testimonials-page',
       R.h2 null, 'Testimonials'
+      R.p null,
+        'We\'re collecting testimonials right now, we\'ll be publishing them
+        soon'
