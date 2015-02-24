@@ -62,7 +62,7 @@ gulp.task 'imgmake', ->
       $.shell(['imagemake --all']))
 
 gulp.task 'extras', ->
-  gulp.src 'CNAME'
+  gulp.src ['CNAME', 'assets/extras/**/*']
     .pipe gulp.dest("#{out}")
 
 gulp.task 'clean', ->
