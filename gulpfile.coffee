@@ -48,6 +48,7 @@ gulp.task 'js', ->
       compress:
         drop_console: true
         dead_code: true
+      screw_ie8: true
     .pipe $.rename('build.js')
     .pipe gulp.dest("#{assets}/js")
 
