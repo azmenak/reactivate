@@ -3,8 +3,8 @@ $           = require('gulp-load-plugins')()
 browserSync = require 'browser-sync'
 reload      = browserSync.reload
 
-src         = './assets'
-out         = './build'
+src         = "#{__dirname}/assets"
+out         = "#{__dirname}/build"
 assets      = out
 
 PROD = if process.env.NODE_ENV is 'production' then true else false
@@ -33,8 +33,8 @@ gulp.task 'styles', ->
     .pipe reload(stream: true)
 
 gulp.task 'html', ->
-  renderStaticHTML = require 'cli/render-static-html'
-  renderStaticHTML out
+  gulp.src '', read: false
+    .pipe $.shell(['reactivate'])
 
 gulp.task 'js', ->
   gulp.src 'assets/js/main.coffee', read: false
@@ -49,9 +49,13 @@ gulp.task 'js', ->
     .pipe $.rename('build.js')
     .pipe gulp.dest("#{assets}/js")
 
-gulp.task 'imgs', ->
-  gulp.src 'assets/img/**/export/**/*'
+gulp.task 'imgs', ['imgmake'], ->
+  gulp.src ['assets/img/**/export/**/*', 'assets/img/*']
     .pipe gulp.dest("#{assets}/img")
+
+gulp.task 'imgmake', ->
+  gulp.src '', read: false
+    .pipe $.shell(['imagemake --all'])
 
 gulp.task 'clean', ->
   del = require 'del'
@@ -78,3 +82,8 @@ gulp.task 'serve', ->
 gulp.task 'build', ['clean', 'html', 'styles', 'imgs', 'js'], ->
   gulp.src "#{out}/**/*"
     .pipe $.size(title: 'Build', gzip: 'True')
+
+gulp.task 'deploy', ['clean', 'html', 'imgs', 'styles', 'js'], ->
+  deploy = require 'gulp-gh-pages'
+  gulp.src "#{out}/**/*"
+    .pipe deploy()
