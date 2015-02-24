@@ -18,7 +18,6 @@ module.exports = React.createFactory React.createClass
 
   menuItems: do ->
     routeTree = RouterUtils.routeTree routes
-    console.log routeTree
     children = JSON.parse(JSON.stringify(routeTree.children))
     children.push
       path: routeTree.path
