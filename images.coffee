@@ -5,14 +5,7 @@ process.on 'exit', (code) ->
   console.timeEnd 'TOTAL TIME'
 
 userArgs = process.argv.slice 2
-
-fs              = require 'fs'
-mkdirp          = require 'mkdirp'
-renderRetinaSet = require 'cli/render-retina-set'
 createSets      = require 'cli/create-sets'
-filters         = require 'cli/filters'
-IMAGES          = require 'app/data/images'
-SIZES           = require 'app/data/sizes'
 
 if '--all' in userArgs
   sets =
