@@ -114,7 +114,12 @@ module.exports = React.createFactory React.createClass
           that deformations produced by low stress are completely recoverable
           after loads are removed. When loaded to higher stress levels,
           plastic deformation or failure occurs. Higher levels imply the wood
-          is more flexible'
+          is more flexible. '
+          R.a
+            href: 'http://www.sapub.org/global/\
+            showpaperpdf.aspx?doi=10.5923/j.ijaf.20120204.06'
+            target: '_blank'
+          , 'More info on how this test is performed...'
 
         R.p null,
           'Comprehensive information about mechanical properties of wood is
@@ -134,7 +139,7 @@ module.exports = React.createFactory React.createClass
           Siberian Larch some as old as 800 years old remain standing today.'
 
       R.h3 null, 'Ideal Applications for Larch Core Floors'
-       ul null,
+        ul null,
           li null, 'Glue Down Installations over Hydronic Radiant Heat,
           maximum operating temp is 30°C (86°F)'
           li null, 'Direct Glue Down over concrete (minimum 60 day cure
