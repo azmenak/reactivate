@@ -12,7 +12,9 @@ kinks in making the development and deployment a bit smoother
 - Browserify for component management
 - 100% free of jQuery because [you don't need
   it](http://youmightnotneedjquery.com)
-- Gulp for building, serving, etc.
+- Gulp for building, serving, etc., used to use
+  [roots.cx](http://roots.cx), but it was geared more towards template
+based static sites
 - Stylus for CSS pre-processing since I wanted to try it (it's
   really nice, highly recommend)
 - LWIP to process images into the various required sizes
