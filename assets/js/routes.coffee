@@ -6,6 +6,7 @@ Home         = require './components/home'
 Lifestyle    = require './components/lifestyle/'
 Products     = require './components/products/'
 Sublime      = require './components/products/sublime'
+Larch        = require './components/products/larch'
 Dealers      = require './components/dealers/'
 Contact      = require './components/contact/'
 Ee           = require './components/ee/'
@@ -36,9 +37,13 @@ routes = Route name: 'home', handler: App, path: '/', order: 0,
     path: '/sublime/?'
     order: 3
   Route
+    name: 'siberian larch'
+    handler: Larch
+    path: '/products/siberian-larch/?'
+  Route
     name: 'expressive essentials'
     handler: Ee
-    path: '/ee/?'
+    path: '/expressive-essentials/?'
   Route
     name: 'where to buy'
     handler: Dealers
