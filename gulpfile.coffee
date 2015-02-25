@@ -74,7 +74,7 @@ gulp.task 'serve', ->
     notify: DEV
     port: 9000
     server:
-      baseDir: [out, '.tmp']
+      baseDir: [out]
 
   gulp.watch([
     out+'/**/*.html'
