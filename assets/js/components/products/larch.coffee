@@ -66,23 +66,23 @@ module.exports = React.createFactory React.createClass
                 R.th className: 'corner', 'Materials'
                 R.th scope: 'col', 'Janka Hardness'
                 R.th scope: 'col', 'Density'
-                R.th scope: 'col', 'Longitudinal Bending'
+                R.th scope: 'col', 'Bending Modulus'
             R.tbody null,
               R.tr null,
                 R.th scope: 'row', 'Siberian Larch'
                 R.td null, '1100 lb/in²'
                 R.td null, '750 kg/m³'
-                R.td null, '9000 Mpa'
+                R.td null, '9000 MPa'
               R.tr null,
                 R.th scope: 'row', 'Yellow Poplar'
                 R.td null, '540 lb/in²'
                 R.td null, '455 kg/m³'
-                R.td null, '6500 Mpa'
+                R.td null, '6500 MPa'
               R.tr null,
                 R.th scope: 'row', 'Baltic Birch'
                 R.td null, '1210 lb/in²'
                 R.td null, '700 kg/m³'
-                R.td null, '9610 Mpa'
+                R.td null, '9610 MPa'
 
         R.h4 null, 'Janka Hardness Test'
         R.p null, 'The Janka hardness test measures the resistance of a
