@@ -39,7 +39,7 @@ routes = Route name: 'home', handler: App, path: '/', order: 0,
   Route
     name: 'siberian larch'
     handler: Larch
-    path: '/products/siberian-larch/?'
+    path: '/siberian-larch/?'
   Route
     name: 'expressive essentials'
     handler: Ee
