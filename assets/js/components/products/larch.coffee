@@ -10,14 +10,6 @@ data = require '../../data/larch'
 module.exports = React.createFactory React.createClass
   displayName: 'Siberian Larch'
 
-  componentDidMount: ->
-    rows = @refs['dataTable'].getDOMNode().querySelectorAll 'tbody tr'
-    for cell in rows
-      cell.children
-
-    console.log 'HI'
-    console.log @refs['dataTable']
-
   render: ->
     div className: 'info larch',
       R.h2 null, 'URBANIA Siberian Larch Core'
