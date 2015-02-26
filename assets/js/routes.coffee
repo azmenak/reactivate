@@ -45,7 +45,7 @@ routes = Route name: 'home', handler: App, path: '/', order: 0,
     handler: Ee
     path: '/expressive-essentials/?'
   Route
-    name: 'where to buy'
+    name: 'dealers'
     handler: Dealers
     path: '/dealers/?'
     order: 5
