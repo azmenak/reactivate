@@ -4,8 +4,10 @@ fs              = require 'fs'
 filters         = require './filters'
 IMAGES          = require '../assets/js/data/images'
 SIZES           = require '../assets/js/data/sizes'
+Q               = require 'q'
 
 module.exports = (setName, imgSet) ->
+  deferred = Q.defer()
   sets = fs.readdirSync("./assets/img/#{setName}")
     .filter filters.osFileTest
     .reduce (prev, curr) ->
@@ -25,4 +27,7 @@ module.exports = (setName, imgSet) ->
       for size in IMAGES[imgSet]
         info = SIZES[size]
         path = "./assets/img/#{setName}/#{set}/#{f}"
-        renderRetinaSet key, size, info, path
+        renderRetinaSet(key, size, info, path).then ->
+          deferred.resolve()
+  deferred.promise
+
