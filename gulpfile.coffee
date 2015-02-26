@@ -77,7 +77,7 @@ gulp.task 'clean', (cb) ->
   del = require 'del'
   del [out], cb
 
-gulp.task 'serve', ->
+gulp.task 'serve', ['build'], ->
   browserSync
     notify: DEV
     port: 9000
@@ -95,11 +95,11 @@ gulp.task 'serve', ->
   gulp.watch 'assets/js/**/*', ['js', 'html']
   gulp.watch 'assets/img/**/*', ['imgs']
 
-gulp.task 'build', ['clean', 'html', 'styles', 'imgs', 'js'], ->
+gulp.task 'build', ['clean', 'html', 'styles', 'imgs', 'js', 'extras'], ->
   gulp.src "#{out}/**/*"
     .pipe $.size(title: 'Build', gzip: 'True')
 
-gulp.task 'deploy', ['clean', 'html', 'imgs', 'styles', 'js', 'extras'], (cb)->
+gulp.task 'deploy', ['build'], (cb)->
   ghPages = require 'gh-pages'
   path = require 'path'
   ghPages.publish path.join(__dirname, 'build'), cb
