@@ -1,6 +1,8 @@
 React = require 'react'
+Router = require 'react-router'
 Paragraphs = require '../paragraphs.react'
 SublimeProductItem = require './sublime-product-item'
+Link = Router.Link
 data = require '../../data'
 
 R = React.DOM
@@ -37,6 +39,10 @@ module.exports = React.createFactory React.createClass
           R.dl null,
             R.dt null, 'Core Material: '
             R.dd null, '15 mm Siberian Larch plywood'
+        R.p null,
+          Link
+            to: '/siberian-larch'
+          , 'More information about Siberian Larch'
 
       div className: 'u-right',
         R.h2 null, copy.headline

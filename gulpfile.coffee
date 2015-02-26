@@ -3,6 +3,7 @@ $           = require('gulp-load-plugins')()
 browserSync = require 'browser-sync'
 reload      = browserSync.reload
 Q           = require 'q'
+createSets  = require 'cli/create-sets'
 
 src         = "#{__dirname}/assets"
 out         = "#{__dirname}/build"
@@ -61,7 +62,7 @@ gulp.task 'imgmake', (cb) ->
   if '--skip-imgmake' in userArgs
     cb()
   else
-    set =
+    sets =
       sublime: 'productSet'
       gallery: 'gallerySet'
       stock: 'stockSet'
@@ -74,10 +75,12 @@ gulp.task 'extras', ->
     .pipe gulp.dest("#{out}")
 
 gulp.task 'clean', (cb) ->
-  del = require 'del'
-  del [out], cb
+  if '--skip-clean' in userArgs then cb()
+  else
+    del = require 'del'
+    del ["#{out}/**/*"], cb
 
-gulp.task 'serve', ['build'], ->
+gulp.task 'serve', ['build-assets'], ->
   browserSync
     notify: DEV
     port: 9000
@@ -95,11 +98,20 @@ gulp.task 'serve', ['build'], ->
   gulp.watch 'assets/js/**/*', ['js', 'html']
   gulp.watch 'assets/img/**/*', ['imgs']
 
-gulp.task 'build', ['clean', 'html', 'styles', 'imgs', 'js', 'extras'], ->
+
+gulp.task 'build-assets', (cb) ->
+  seq = require 'run-sequence'
+  seq 'clean',
+    ['styles', 'imgs', 'js', 'extras'],
+    'html',
+    'build',
+    cb
+
+gulp.task 'build', ->
   gulp.src "#{out}/**/*"
     .pipe $.size(title: 'Build', gzip: 'True')
 
-gulp.task 'deploy', ['build'], (cb)->
+gulp.task 'deploy', ['build-assets'], (cb)->
   ghPages = require 'gh-pages'
   path = require 'path'
   ghPages.publish path.join(__dirname, 'build'), cb
