@@ -2,6 +2,7 @@ gulp        = require 'gulp'
 $           = require('gulp-load-plugins')()
 browserSync = require 'browser-sync'
 reload      = browserSync.reload
+Q           = require 'q'
 
 src         = "#{__dirname}/assets"
 out         = "#{__dirname}/build"
@@ -56,10 +57,17 @@ gulp.task 'imgs', ['imgmake'], ->
   gulp.src ['assets/img/**/export/**/*', 'assets/img/*']
     .pipe gulp.dest("#{assets}/img")
 
-gulp.task 'imgmake', ->
-  gulp.src '', read: false
-    .pipe $.if(!'--skip-imgmake' of userArgs,
-      $.shell(['imagemake --all']))
+gulp.task 'imgmake', (cb) ->
+  if '--skip-imgmake' in userArgs
+    cb()
+  else
+    set =
+      sublime: 'productSet'
+      gallery: 'gallerySet'
+      stock: 'stockSet'
+    promises = for key, val of sets
+      createSets key, val
+    Q.all(promises).then cb
 
 gulp.task 'extras', ->
   gulp.src ['CNAME', 'assets/extras/**/*']
