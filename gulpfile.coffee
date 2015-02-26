@@ -65,9 +65,9 @@ gulp.task 'extras', ->
   gulp.src ['CNAME', 'assets/extras/**/*']
     .pipe gulp.dest("#{out}")
 
-gulp.task 'clean', ->
+gulp.task 'clean', (cb) ->
   del = require 'del'
-  del [out]
+  del [out], cb
 
 gulp.task 'serve', ->
   browserSync
