@@ -14,6 +14,7 @@ Testimonials = require './components/testimonials/'
 Gallery      = require './components/gallery/'
 Spotlight    = require './components/gallery/spotlight'
 Collection   = require './components/gallery/collection'
+Warranty     = require './components/other/warranty'
 
 Route        = React.createFactory Router.Route
 DefaultRoute = React.createFactory Router.DefaultRoute
@@ -59,6 +60,10 @@ routes = Route name: 'home', handler: App, path: '/', order: 0,
     handler: Contact
     path: '/contact/?'
     order: 8
+  Route
+    name: 'warranty'
+    handler: Warranty
+    path: '/warranty/?'
   Route
     name: 'gallery'
     handler: Gallery

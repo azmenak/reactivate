@@ -39,10 +39,15 @@ module.exports = React.createFactory React.createClass
           R.dl null,
             R.dt null, 'Core Material: '
             R.dd null, '15 mm Siberian Larch plywood'
+
         R.p null,
           Link
             to: '/siberian-larch'
           , 'More information about Siberian Larch'
+        R.p null,
+          Link
+            to: '/warranty'
+          , 'Warranty information for URBANIA products'
 
       div className: 'u-right',
         R.h2 null, copy.headline
