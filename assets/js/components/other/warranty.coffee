@@ -23,7 +23,7 @@ module.exports = React.createFactory React.createClass
         Note we provide a hard copy of these instructions in every 3rd box
         of flooring. '
         li null, 'The product is installed in an environment where the
-        ambient moisture content is controlled within the range of 30% -
+        ambient moisture content is controlled within the range of 25% -
         70%.'
 
       R.h3 null, 'Warranty Details:'

@@ -141,7 +141,7 @@ module.exports = React.createFactory React.createClass
           li null, 'Floating installations over concrete and wooden
           sub-floors. T&G perimeter gluing required for floating
           installations'
-          li null, 'Acceptable ambient humidity range is 20% - 80%'
+          li null, 'Acceptable ambient humidity range is 25% - 70%'
           li null, 'Suitable for nail down installation over 18 mm OSB'
           li null, 'Water Borne mastic engineered wood flooring adhesives OK'
 
