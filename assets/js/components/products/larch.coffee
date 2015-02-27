@@ -157,7 +157,7 @@ module.exports = React.createFactory React.createClass
         li null, 'Siberian Larch plywood has a very high bending strength 50%
         higher than Poplar Plywood and similar to Baltic Birch plywood, This
         provides maximum gap and cup resistance even at extremely low ambient
-        humidity levels (warrantied to a minimum of 20% ambient humidity).'
+        humidity levels (warrantied to a minimum of 25% ambient humidity).'
         li null, 'Siberian Larch Plywood will resist the uptake or loss of
         moisture; the natural resins that protect Siberian Larch are not
         present in Baltic Birch.'

@@ -11,3 +11,5 @@ module.exports =
     jenka: 1210
     density: 700
     bending: 9610
+  minRH: 25
+  maxRH: 70
