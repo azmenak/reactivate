@@ -27,10 +27,11 @@ module.exports = React.createFactory React.createClass
         70%.'
 
       R.h3 null, 'Warranty Details:'
-      p null, 'Lacquer Finish Warranty – Urbania warrants the coating
-      against wear through for 25 years in residential applications.
-      Abusive conditions are not covered by this warranty, they include
-      the following:'
+
+      R.h4 null, 'Lacquer Finish Warranty'
+      p null, 'Urbania warrants the coating against wear through for 25 years
+      in residential applications.  Abusive conditions are not covered by this
+      warranty, they include the following:'
       ul null,
         li null,
           R.strong null, 'Moist Conditions'
@@ -56,6 +57,7 @@ module.exports = React.createFactory React.createClass
       artificial light is an inherent property of wood and not considered
       a manufacturing defect and thus is not covered by this warranty.'
 
-      p null, 'Lifetime Structural Warranty – Urbania Canada warrants that
-      your product is free from manufacturing structural defects and will
-      remain free of these defects for as long as you own your residence.'
+      R.h4 null, 'Lifetime Structural Warranty'
+      p null, 'Urbania Canada warrants that your product is free from
+      manufacturing structural defects and will remain free of these defects
+      for as long as you own your residence.'
