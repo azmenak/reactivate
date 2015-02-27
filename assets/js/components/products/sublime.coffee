@@ -2,7 +2,7 @@ React = require 'react'
 Router = require 'react-router'
 Paragraphs = require '../paragraphs.react'
 SublimeProductItem = require './sublime-product-item'
-Link = Router.Link
+Link = React.createFactory Router.Link
 data = require '../../data'
 
 R = React.DOM
