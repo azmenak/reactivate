@@ -63,7 +63,7 @@ module.exports = React.createFactory React.createClass
               R.tr null,
                 R.th scope: 'row', 'Siberian Larch'
                 R.td null, '1100 lb/in²'
-                R.td null, '750 kg/m³'
+                R.td null, '700 kg/m³'
                 R.td null, '9000 MPa'
               R.tr null,
                 R.th scope: 'row', 'Yellow Poplar'
