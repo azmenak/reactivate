@@ -10,7 +10,7 @@ data =
   pages:
     home:
       copy:
-        headline: 'Chic Authentic'
+        headline: 'Chic Authentique'
         lifestyle: 'See the Urbania lifestyle'
         installation: 'Take a look at available products'
       slides: [
