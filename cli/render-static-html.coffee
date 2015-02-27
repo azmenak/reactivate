@@ -7,7 +7,7 @@ reactify    = require 'cli/reactify'
 htmlMin     = require 'html-minifier'
 Q           = require 'q'
 
-PROD = process.env.NODE_ENV == 'production'
+PROD = process.env.NODE_ENV is 'production'
 
 routeTree = routerUtils.routeTree routes
 paths = []
@@ -37,3 +37,4 @@ module.exports = (location = 'pages') ->
             deferred.resolve file
 
   deferred.promise
+        PROD: PROD
