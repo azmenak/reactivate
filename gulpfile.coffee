@@ -3,7 +3,9 @@ $           = require('gulp-load-plugins')()
 browserSync = require 'browser-sync'
 reload      = browserSync.reload
 Q           = require 'q'
+
 createSets  = require 'cli/create-sets'
+renderHTML  = require 'cli/render-static-html'
 
 src         = "#{__dirname}/assets"
 out         = "#{__dirname}/build"
@@ -35,10 +37,18 @@ gulp.task 'styles', ->
     .pipe $.if(DEV, $.sourcemaps.write())
     .pipe gulp.dest("#{assets}/css")
     .pipe reload(stream: true)
+    .pipe $.rev()
+    .pipe gulp.dest("#{assets}/css")
+    .pipe $.rev.manifest
+      base: assets
+      merge: true
+      path: "#{out}/manifest.json"
+    .pipe gulp.dest(out)
 
-gulp.task 'html', ->
-  gulp.src '', read: false
-    .pipe $.shell(['reactivate'])
+gulp.task 'html', (cb) ->
+  promise = renderHTML(out)
+  promise.all().then ->
+    reload()
 
 gulp.task 'js', ->
   gulp.src 'assets/js/main.coffee', read: false
@@ -53,15 +63,20 @@ gulp.task 'js', ->
       screw_ie8: true
     .pipe $.rename('build.js')
     .pipe gulp.dest("#{assets}/js")
+    .pipe $.rev()
+    .pipe gulp.dest("#{assets}/js")
+    .pipe $.rev.manifest
+      base: assets
+      merge: true
+      path: "#{out}/manifest.json"
+    .pipe gulp.dest(out)
 
 gulp.task 'imgs', ['imgmake'], ->
   gulp.src ['assets/img/**/export/**/*', 'assets/img/*']
     .pipe gulp.dest("#{assets}/img")
 
 gulp.task 'imgmake', (cb) ->
-  if '--skip-imgmake' in userArgs
-    cb()
-  else
+  if '--imgmake' in userArgs
     sets =
       sublime: 'productSet'
       gallery: 'gallerySet'
@@ -69,6 +84,8 @@ gulp.task 'imgmake', (cb) ->
     promises = for key, val of sets
       createSets key, val
     Q.all(promises).then cb
+  else
+    cb()
 
 gulp.task 'extras', ->
   gulp.src ['CNAME', 'assets/extras/**/*']
@@ -88,9 +105,7 @@ gulp.task 'serve', ['build-assets'], ->
       baseDir: [out]
 
   gulp.watch([
-    out+'/**/*.html'
     assets+'/img/**/*'
-    assets+'/js/**/*'
   ]).on 'change', reload
 
   gulp.watch '*.jade', ['html']
