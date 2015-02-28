@@ -15,8 +15,9 @@ kinks in making the development and deployment a bit smoother
 - Gulp for building, serving, etc., used to use
   [roots.cx](http://roots.cx), but it was geared more towards template
 based static sites
+- Now includes cache-busting use gulp-rev
 - Stylus for CSS pre-processing since I wanted to try it (it's
-  really nice, highly recommend)
+  really nice, highly recommend over SASS)
 - LWIP to process images into the various required sizes
 - Jade for a single layout file to make life slightly easier
 - gh-pages for hosting with cloudflare managing the DNS and some extra
