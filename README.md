@@ -7,19 +7,19 @@ Not quite ready for prime-time as an engine, still need to work out the
 kinks in making the development and deployment a bit smoother
 
 ### Stack
-- Facebook's ReactJS for rendering on client and build
-- Using the excellent React-Router for routing on both sides as well
-- Browserify for component management
+- Facebook's [ReactJS](http://facebook.github.io/react/) for rendering on client and build
+- Using the excellent [React-Router](https://github.com/rackt/react-router) for routing on both sides as well
+- [Browserify](http://browserify.org/) for component management
 - 100% free of jQuery because [you don't need
   it](http://youmightnotneedjquery.com)
-- Gulp for building, serving, etc., used to use
+- [Gulp](http://gulpjs.com/) for building, serving, etc., used to use
   [roots.cx](http://roots.cx), but it was geared more towards template
 based static sites
-- Now includes cache-busting use gulp-rev
-- Stylus for CSS pre-processing since I wanted to try it (it's
+- Now includes cache-busting use [gulp-rev](https://github.com/sindresorhus/gulp-rev)
+- [Stylus](http://learnboost.github.io/stylus/) for CSS pre-processing since I wanted to try it (it's
   really nice, highly recommend over SASS)
-- LWIP to process images into the various required sizes
-- Jade for a single layout file to make life slightly easier
+- [LWIP](https://github.com/EyalAr/lwip) to process images into the various required sizes
+- [Jade](http://jade-lang.com/) for a single layout file to make life slightly easier
 - gh-pages for hosting with cloudflare managing the DNS and some extra
   caching
 
