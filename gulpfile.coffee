@@ -88,7 +88,7 @@ gulp.task 'imgmake', (cb) ->
     cb()
 
 gulp.task 'extras', ->
-  gulp.src ['CNAME', 'assets/extras/**/*']
+  gulp.src ['CNAME', 'assets/extras/**/*', 'assets/fonts/**/*']
     .pipe gulp.dest("#{out}")
 
 gulp.task 'clean', (cb) ->
@@ -106,6 +106,7 @@ gulp.task 'serve', ['build-assets'], ->
 
   gulp.watch([
     assets+'/img/**/*'
+    assets+'/js/**/*'
   ]).on 'change', reload
 
   gulp.watch '*.jade', ['html']

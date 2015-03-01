@@ -5,3 +5,4 @@ node_modules/*
 !node_modules/app
 !node_modules/cli
 assets/img/**/export
+bower_components
