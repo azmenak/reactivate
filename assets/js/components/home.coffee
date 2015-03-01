@@ -1,9 +1,10 @@
-React = require 'react'
+React     = require 'react'
+RetinaImg = require './retina-image'
 Slideshow = require './slideshow'
-data = require '../data'
+data      = require '../data'
 
-R = React.DOM
-div = R.div
+R         = React.DOM
+div       = R.div
 
 copy = data.pages.home.copy
 
