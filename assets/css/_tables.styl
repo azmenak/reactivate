@@ -14,6 +14,10 @@ table.responsive
     &.corner
       color #CCC
 
+  &.A
+    td:nth-child(1)
+      display none
+
   @media screen and (max-width: 630px)
     &, thead, tbody, th, td, tr
       display block
@@ -50,4 +54,22 @@ table.responsive
         &:nth-of-type(2):before
           content 'Density'
         &:nth-of-type(3):before
-          content: 'Bending'
+          content 'Bending'
+    &.product-specs
+      td
+        &:before
+          text-align right
+        &:nth-of-type(1):before
+          content 'A'
+        &:nth-of-type(2):before
+          content 'AB'
+        &:nth-of-type(3):before
+          content 'ABC'
+        &:nth-of-type(4):before
+          content 'ABCD'
+
+      td, th
+        padding-left 30%
+        text-align left !important
+        &:before
+          width 20%
