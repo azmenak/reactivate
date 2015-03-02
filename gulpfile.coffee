@@ -88,8 +88,12 @@ gulp.task 'imgmake', (cb) ->
     cb()
 
 gulp.task 'extras', ->
-  gulp.src ['CNAME', 'assets/extras/**/*', 'assets/fonts/**/*']
+  gulp.src ['CNAME']
     .pipe gulp.dest("#{out}")
+  gulp.src ['assets/extras/**/*']
+    .pipe gulp.dest("#{out}/extras")
+  gulp.src ['assets/fonts/**/*']
+    .pipe gulp.dest("#{out}/fonts")
 
 gulp.task 'clean', (cb) ->
   if '--skip-clean' in userArgs then cb()
