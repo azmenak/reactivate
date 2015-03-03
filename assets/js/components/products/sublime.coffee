@@ -9,8 +9,6 @@ R = React.DOM
 div = R.div
 
 copy = data.pages.sublime.copy
-products = data.products.sublime.filter (product) ->
-  product.status is 'current'
 
 module.exports = React.createFactory React.createClass
   displayName: 'Sublime'
@@ -64,6 +62,10 @@ module.exports = React.createFactory React.createClass
           Link
             to: '/warranty'
           , 'Warranty information for URBANIA products'
+        R.p null,
+          Link
+            to: '/grades'
+          , 'Information on product grading'
 
       div className: 'u-right',
         R.h2 null, copy.headline

@@ -45,6 +45,17 @@ module.exports = React.createFactory React.createClass
   render: ->
     div className: 'info grades',
       R.h2 null, 'Standard Grades'
+      R.p null, 'URBANIA products are graded on a letter scale. As an example,
+      ABC grade contains a mix of A, B and C product. Here is a general
+      overview of what to expect with each grade: '
+      R.ul null,
+        R.li null, 'AB — All knots tight and filled, max of 10mm, with minimal
+        colour variation.'
+        R.li null, 'ABC — All knots tight and filled, colour variation is not a
+        defect.'
+        R.li null, 'ABCD — Knots and cracks will be filled, allows for large
+        amount of colour variation.'
+      R.h2 null, 'Comprehensive Grade Description'
       R.table className: 'responsive specs product-specs ' + @state.grades,
         R.thead null,
           R.tr null,
