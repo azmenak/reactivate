@@ -83,7 +83,9 @@ gulp.task 'imgmake', (cb) ->
       stock: 'stockSet'
     promises = for key, val of sets
       createSets key, val
-    Q.all(promises).then cb
+    Q.all(promises)
+  else if '--sublime' in userArgs
+    createSets('sublime', 'productSet')
   else
     cb()
 
