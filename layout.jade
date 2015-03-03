@@ -3,7 +3,7 @@ html
   head
     meta(charset='utf8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge, chrome=1')
-    meta(name='description', content='URBANIA - Urban, Modern, ')
+    meta(name='description', content='URBANIA - Urban, Modern Hardwood Flooring')
     meta(name='author', content= "Adam Zmenak <adam.zmenak@gmail.com>")
     meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
     title URBANIA
@@ -18,9 +18,9 @@ html
   body !{content}
     if PROD
       each script in scripts
-        script(src='/js/'+script type='application/javascript')
+        script(src='/js/'+script)
     else
-      script(src='/js/build.js' type='application/javascript')
+      script(src='/js/build.js')
     if PROD
       script
         | (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -31,7 +31,7 @@ html
         | ga('send', 'pageview');
       script
         | WebFontConfig={google:{families:["Fira+Sans::latin"]}},function(){var t=document.createElement("script")
-        | t.src=("https:"==document.location.protocol?"https":"http")+"://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js",t.type="text/javascript",t.async="true"
+        | t.src=("https:"==document.location.protocol?"https":"http")+"://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js",t.async=1
         | var e=document.getElementsByTagName("script")[0]
         | e.parentNode.insertBefore(t,e)}()
 
