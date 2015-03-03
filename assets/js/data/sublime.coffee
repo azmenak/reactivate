@@ -30,7 +30,7 @@ module.exports =
       name: 'Calico Natural Oil'
       status: STATUSES.current
       brightness: 0.75
-      grade: GRADES.ABC
+      grade: GRADES.ABCD
       finish: FINISHES.natural
       description: '''
         Light brown natural oil finish with 0 gloss.
@@ -71,6 +71,14 @@ module.exports =
       finish: FINISHES.lacquer
       description: '''
         Brushed two tone taupe over white grain
+      '''
+    'calico-lacquer':
+      name: 'Calico Brown'
+      brightness: 0.7
+      grade: GRADES.ABC
+      finish: FINISHES.lacquer
+      description: '''
+        Mid-light brown finish, subtle grain pattern.
       '''
     'platinum-lacquer':
       name: 'Platinum Gray'
