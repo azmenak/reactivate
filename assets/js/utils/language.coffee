@@ -1,3 +1,17 @@
+###*
+# Language localization module
+# When used in the browser, should auto-detect language settings
+#
+# @param content {string | object} keyed content with language codes to be
+# returned for a given or detected language eg.
+#   content = {
+#     'en-ca': 'I like the colour red'
+#     'en': 'I like the color red'
+#     'zh': '我喜欢红颜色'
+#   }
+# @param [lang] {string} language code (eg. "en-US") for language to be retuned
+###
+
 languages = (content, lang) ->
   lang ?= languages.getLang()
 
