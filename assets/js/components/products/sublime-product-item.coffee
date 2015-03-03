@@ -10,9 +10,6 @@ module.exports = React.createFactory React.createClass
   getInitialState: ->
     largeImgShown: false
 
-  propTypes:
-    info: React.PropTypes.object.isRequired
-
   imgPath: (key, size) ->
     "/img/sublime/export/#{key}-#{size}@2x.jpg"
 
@@ -27,7 +24,7 @@ module.exports = React.createFactory React.createClass
   render: ->
     div
       className: 'product'
-      id: @props.info.images.key
+      id: @props.id
     ,
       div
         className: 'banner'
@@ -37,7 +34,7 @@ module.exports = React.createFactory React.createClass
           R.h3 null, @props.info.name.replace('and', '&')
           R.p className: 'click-to-expand', 'Click to expand'
         R.img
-          src: @imgPath @props.info.images.key, 'banner'
+          src: @imgPath @props.id, 'banner'
           alt: @props.info.description
 
       div
@@ -48,5 +45,5 @@ module.exports = React.createFactory React.createClass
       ,
         div className: 'container-box',
           R.img
-            src: @imgPath @props.info.images.key, 'large'
+            src: @imgPath @props.id, 'large'
             alt: @props.info.description + ' - full size'

@@ -71,7 +71,9 @@ module.exports = React.createFactory React.createClass
           body: copy.body
 
         div className: 'products',
-          for product in products
+          for key, val of data.products.sublime.colours \
+          when val.status isnt 'removed'
             SublimeProductItem
-              info: product
-              key: product.images.key
+              info: val
+              key: key
+              id: key
