@@ -18,9 +18,7 @@ userArgs = process.argv.slice 2
 
 gulp.task 'styles', ->
   autoprefixer = require 'autoprefixer-core'
-  processors = [
-    autoprefixer(browsers: ['last 2 versions'])
-  ]
+  processors = [autoprefixer(browsers: ['last 2 versions'])]
   if PROD
     mqpacker = require 'css-mqpacker'
     csswring  = require 'csswring'
@@ -52,6 +50,7 @@ gulp.task 'html', (cb) ->
 
 gulp.task 'js', ->
   gulp.src 'assets/js/main.coffee', read: false
+    .pipe $.plumber()
     .pipe $.browserify
       transform: ['coffeeify']
       extensions: ['.coffee']
