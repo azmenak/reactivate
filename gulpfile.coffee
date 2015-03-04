@@ -35,18 +35,17 @@ gulp.task 'styles', ->
     .pipe $.if(DEV, $.sourcemaps.write())
     .pipe gulp.dest("#{assets}/css")
     .pipe reload(stream: true)
-    .pipe $.rev()
-    .pipe gulp.dest("#{assets}/css")
-    .pipe $.rev.manifest
+    .pipe $.if(PROD, $.rev())
+    .pipe $.if(PROD, gulp.dest("#{assets}/css"))
+    .pipe $.if(PROD, $.rev.manifest
       base: assets
       merge: true
-      path: "#{out}/manifest.json"
-    .pipe gulp.dest(out)
+      path: "#{out}/manifest.json")
+    .pipe $.if(PROD, gulp.dest(out))
 
 gulp.task 'html', (cb) ->
   promise = renderHTML(out)
-  promise.all().then ->
-    reload()
+  promise.all()
 
 gulp.task 'js', ->
   gulp.src 'assets/js/main.coffee', read: false
@@ -71,6 +70,8 @@ gulp.task 'js', ->
     .pipe gulp.dest(out)
 
 gulp.task 'imgs', ['imgmake'], ->
+  gulp.src ['assets/img/export/**/*']
+    .pipe gulp.dest("#{assets}/img/export")
   gulp.src ['assets/img/**/export/**/*', 'assets/img/*']
     .pipe gulp.dest("#{assets}/img")
 
