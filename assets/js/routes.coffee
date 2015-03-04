@@ -4,6 +4,7 @@ App          = require './components/app.react'
 
 Home         = require './components/home'
 Lifestyle    = require './components/lifestyle/'
+Features     = require './components/features/'
 Products     = require './components/products/'
 Sublime      = require './components/products/sublime'
 Larch        = require './components/products/larch'
@@ -28,6 +29,10 @@ routes = Route name: 'home', handler: App, path: '/', order: 0,
     name: 'lifestyle'
     handler: Lifestyle
     path: '/lifestyle/?'
+  Route
+    name: 'features'
+    handler: Features
+    path: '/features/?'
     order: 1
   Route
     name: 'products'
