@@ -14,7 +14,7 @@ data =
         lifestyle: 'See the Urbania lifestyle'
         installation: 'Take a look at available products'
       slides: [
-        background: '/img/stock/export/room-with-fireplace-slide@2x.jpg'
+        background: '/img/stock/export/two-people-lying-on-floor-slide@2x.jpg'
       ]
     lifestyle:
       copy:
