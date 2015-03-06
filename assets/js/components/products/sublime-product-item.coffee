@@ -1,8 +1,10 @@
-Cx = require 'react/lib/cx'
-React = require 'react'
+Cx     = require 'react/lib/cx'
+React  = require 'react'
+Router = require 'react-router'
+Link   = React.createFactory Router.Link
 
-R = React.DOM
-div = R.div
+R      = React.DOM
+div    = R.div
 
 module.exports = React.createFactory React.createClass
   displayName: 'Sublime Product Item'
@@ -47,3 +49,12 @@ module.exports = React.createFactory React.createClass
           R.img
             src: @imgPath @props.id, 'large'
             alt: @props.info.description + ' - full size'
+
+      div className: 'info',
+        R.dl null,
+          R.dt null, 'Finish: '
+          R.dd null, @props.info.finish
+          R.dt null, 'Grade: '
+          R.dd null,
+            Link to: '/grades', @props.info.grade
+

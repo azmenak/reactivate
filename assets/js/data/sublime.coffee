@@ -84,6 +84,7 @@ module.exports =
       name: 'Platinum Gray'
       status: STATUSES.current
       brightness: 0.5
+      grade: GRADES.ABC
       finish: FINISHES.lacquer
       description: '''
         Modern gray finish over subtle contrasting white tones.
