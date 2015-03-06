@@ -43,7 +43,8 @@ module.exports =
       'zero-emissions':
         body: '''
           URBANIA floors are produced with environmentally responsible
-          adhesives and coatings. No Formaldehyde is used in our products.
+          adhesives and coatings. All URBANIA products conform to CARB Phase 2
+          emission standards, the strictest in the USA.
         '''
       'performance-coatings':
         body: '''
