@@ -63,6 +63,12 @@ module.exports =
       description: '''
         Brushed back olive gray over contrasting black grain.
       '''
+    'warm-oyster':
+      name: 'Warm Oyster Gray'
+      status: STATUSES.current
+      brightness: 0.75
+      grade: GRADES.ABC
+      finish: FINISHES.lacquer
     'ivory-clay':
       name: 'Ivory and Clay'
       status: STATUSES.current
