@@ -58,7 +58,7 @@ module.exports =
         '''
       'wear-layer':
         body: '''
-          6 mm of Dry Sawn hardwood offers 100% of the service life of solid
+          4 mm of Dry Sawn hardwood offers 100% of the service life of solid
           hardwood flooring.
         '''
       'moisture-control':
