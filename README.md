@@ -7,6 +7,8 @@ Not quite ready for prime-time as an engine, still need to work out the
 kinks in making the development a bit smoother. Also going to strip the
 content of the site later for re-use.
 
+Licenced under [Mozilla Public License v2](https://www.mozilla.org/MPL/2.0/)
+
 ### Stack
 - Facebook's [ReactJS](http://facebook.github.io/react/) for rendering on client and build
 - Using the excellent [React-Router](https://github.com/rackt/react-router) for routing on both sides as well
@@ -31,9 +33,8 @@ content of the site later for re-use.
 - get money
 
 ### Other Comands
-- run `npm link` first
-- `imagemake` [--images] will create exports of the needed images
-- `reactivate` will read `routes.coffee` and create the required
+- `gulp imgmake` [--images] will create exports of the needed images
+- `gulp html` will read `routes.coffee` and create the required
   static HTML files
 
 ### Deploying
@@ -41,3 +42,4 @@ content of the site later for re-use.
 - `gulp build` to create a serveable build
 - Use `NODE_ENV=production` for production ready builds
 - Deploy to gh-pages using `gulp deploy`
+- `NODE_ENV=production gulp deploy` will build and deploy to production
